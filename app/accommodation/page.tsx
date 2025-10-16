@@ -114,7 +114,7 @@ export default function AccommodationPage() {
               opacity: 0.95,
             }}
           >
-            Escape to the peace of Lapland wilderness on your dream vacation. In OloResort's glass igloo you can admire golden sunsets, 
+            Escape to the peace of Lapland wilderness on your dream vacation. In OloResort&apos;s glass igloo you can admire golden sunsets, 
             dancing northern lights and the starry sky right from your bed. Relax in the Lounge & Sauna area with a relaxing sauna or hot tub 
             session and enjoy the warmth of the fireplace surrounded by nature.
           </p>
@@ -605,7 +605,7 @@ export default function AccommodationPage() {
               opacity: 0.95,
             }}
           >
-            Would you like to stay at our unique destination? Get in touch, and we'll find just the right time for your vacation.
+            Would you like to stay at our unique destination? Get in touch, and we&apos;ll find just the right time for your vacation.
           </p>
           <Link
             href="/contact"

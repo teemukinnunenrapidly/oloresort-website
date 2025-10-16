@@ -122,7 +122,7 @@ export default function Home() {
                 margin: '0 auto',
               }}
             >
-              Enjoy Lapland's peace and beauty surrounded by modern luxury
+              Enjoy Lapland&apos;s peace and beauty surrounded by modern luxury
             </p>
           </div>
           
@@ -298,7 +298,7 @@ export default function Home() {
               opacity: 0.95,
             }}
           >
-            Experience the magic of Lapland at OloResort's unique accommodation
+            Experience the magic of Lapland at OloResort&apos;s unique accommodation
           </p>
           <Link
             href="/contact"

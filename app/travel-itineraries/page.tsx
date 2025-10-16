@@ -229,7 +229,7 @@ export default function TravelItinerariesPage() {
                 margin: '0 auto'
               }}
             >
-              Each package includes accommodation in OloResort's luxurious glass igloo, 
+              Each package includes accommodation in OloResort&apos;s luxurious glass igloo, 
               airport transfers and carefully selected activities
             </p>
           </div>
@@ -679,7 +679,7 @@ export default function TravelItinerariesPage() {
             }}
           >
             We tailor a suitable travel package for each guest. 
-            Tell us your wishes and we'll create the perfect Lapland vacation for you.
+            Tell us your wishes and we&apos;ll create the perfect Lapland vacation for you.
           </p>
           <div 
             style={{

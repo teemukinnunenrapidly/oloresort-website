@@ -219,7 +219,7 @@ export default function ActivitiesPage() {
                 margin: '0 auto',
               }}
             >
-              Choose a 3 or 4 night dream holiday - we'll take care of the rest
+              Choose a 3 or 4 night dream holiday - we&apos;ll take care of the rest
             </p>
           </div>
 
@@ -267,7 +267,7 @@ export default function ActivitiesPage() {
                         fontWeight: 'var(--ref-font-weight-semibold)',
                       }}
                     >
-                      Package's unforgettable experiences:
+                      Package&apos;s unforgettable experiences:
                     </h4>
                     <ul style={{ listStyle: 'none' }}>
                       {pkg.includedActivities.map((activity, actIndex) => (
@@ -482,7 +482,7 @@ export default function ActivitiesPage() {
                 opacity: '0.95',
               }}
             >
-              Fill out the form below and we'll customize the perfect holiday package for you
+              Fill out the form below and we&apos;ll customize the perfect holiday package for you
             </p>
           </div>
 
