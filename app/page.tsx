@@ -1,167 +1,311 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Star, MapPin, Calendar } from "lucide-react";
-import { Stream } from "@cloudflare/stream-react";
+import HeroVideo from "./components/HeroVideo";
+import BookingWidget from "./components/BookingWidget";
 
 export default function Home() {
+  const features = [
+    {
+      icon: "✨",
+      title: "Northern Lights from Your Bed",
+      description: "Watch the dancing northern lights from the warmth of your blanket. Large glass surfaces and a glass ceiling offer an unobstructed view of the Lapland night sky."
+    },
+    {
+      icon: "🏔️",
+      title: "In the Heart of Nature",
+      description: "Peaceful location in the embrace of nature, yet just a short distance from Levi's services and slopes."
+    },
+    {
+      icon: "🦌",
+      title: "Unique Activities",
+      description: "Snowmobile safaris, husky rides, reindeer rides and snowshoeing - experience Lapland winter at its best."
+    },
+    {
+      icon: "🍽️",
+      title: "Local Gourmet Food",
+      description: "Enjoy delicious breakfast and dinner combining local ingredients and modern cuisine."
+    },
+    {
+      icon: "🧖",
+      title: "Finnish Sauna",
+      description: "Relax in a traditional Finnish sauna and enjoy a perfect moment in the peace of nature."
+    },
+    {
+      icon: "🛏️",
+      title: "Premium Furnishings",
+      description: "Each suite is luxuriously furnished, including a private kitchen, bathroom and all modern amenities."
+    }
+  ];
+
+  const rooms = [
+    {
+      title: "Private Suite",
+      description: "Luxurious suite for two, glass ceiling and panoramic views"
+    },
+    {
+      title: "Premium Suite",
+      description: "More spacious suite, fully equipped kitchen and living area"
+    },
+    {
+      title: "Deluxe Suite",
+      description: "Luxury suite with private terrace and outdoor hot tub"
+    }
+  ];
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ background: 'var(--ref-color-neutral-1000)' }}>
+      
       {/* Hero Section with Video */}
-      <section className="relative h-screen bg-black">
+      <section 
+        className="relative flex items-center justify-center overflow-hidden"
+        style={{
+          height: '100vh',
+        }}
+      >
         {/* Cloudflare Stream Video */}
-        <div className="absolute inset-0">
-          {process.env.NEXT_PUBLIC_CLOUDFLARE_STREAM_VIDEO_ID ? (
-            <Stream
-              controls={false}
-              src={process.env.NEXT_PUBLIC_CLOUDFLARE_STREAM_VIDEO_ID}
-              autoplay
-              muted
-              loop
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            /* Placeholder gradient when video ID is not set */
-            <div className="w-full h-full bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900" />
-          )}
-          {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/40"></div>
-        </div>
+        <HeroVideo />
         
-        {/* Hero Content */}
-        <div className="relative h-full flex items-center justify-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white">
-              Enjoy the unique nature, relax in quality accommodation
-            </h1>
-            <h2 className="text-xl md:text-2xl lg:text-3xl mb-8 text-white max-w-4xl mx-auto">
-              Experience a unique accommodation experience in Levi, in the enchanting nature of Lapland
-            </h2>
-            <p className="text-lg md:text-xl mb-12 text-white max-w-3xl mx-auto">
-              Your dream vacation awaits in Levi, Kittilä, in the embrace of the fells and under the blazing northern lights. 
-              Stay in a wonderful OloResort Suite and choose unforgettable experiences from our carefully curated selection of activities.
-            </p>
-            <Link
-              href="/accommodation"
-              className="inline-flex items-center bg-white text-blue-900 px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg"
-            >
-              Check Out OloResort
-              <ArrowRight className="ml-2" size={20} />
-            </Link>
-          </div>
+        <div className="relative z-10 text-center fade-in-up" style={{ 
+          maxWidth: '900px', 
+          padding: '0 var(--ref-spacing-8)' 
+        }}>
+          <h1 
+            style={{
+              fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+              fontWeight: 'var(--ref-font-weight-bold)',
+              color: 'var(--sem-color-primary-base)',
+              marginBottom: 'var(--ref-spacing-6)',
+              textShadow: '2px 2px 10px rgba(0, 0, 0, 0.5)',
+              letterSpacing: '0.02em',
+              lineHeight: 1.1,
+            }}
+          >
+            Unique Accommodation Experience in Levi
+          </h1>
+          <p 
+            style={{
+              fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
+              color: 'var(--ref-color-neutral-0)',
+              marginBottom: 'var(--ref-spacing-12)',
+              fontWeight: 'var(--ref-font-weight-light)',
+              textShadow: '1px 1px 5px rgba(0, 0, 0, 0.7)',
+            }}
+          >
+            Experience the enchanting nature of Lapland from our luxurious glass igloos
+          </p>
+          <BookingWidget />
         </div>
       </section>
 
-      {/* Divider with overlay graphic */}
-      <div className="relative w-full h-32 md:h-48 overflow-hidden">
-        <Image
-          src="/images/header-slider-overlay.webp"
-          alt="Decorative divider"
-          fill
-          className="object-cover object-center"
-          priority
-        />
-      </div>
-
-      {/* Northern Lights Hut Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                Northern lights hut
-              </h3>
-              <p className="text-lg text-gray-600 mb-8">
-                Admire the blazing northern lights and golden sunsets right from your bed.
-              </p>
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center text-yellow-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={20} fill="currentColor" />
-                  ))}
+      {/* Experience Section */}
+      <section style={{ 
+        padding: 'var(--ref-spacing-20) var(--ref-spacing-8)',
+        backgroundColor: 'var(--sem-color-background-content)'
+      }}>
+        <div className="container max-w-7xl mx-auto">
+          <div className="text-center" style={{ marginBottom: 'var(--ref-spacing-16)' }}>
+            <h2 
+              style={{
+                fontSize: 'clamp(2rem, 4vw, 3rem)',
+                color: 'var(--sem-color-primary-base)',
+                marginBottom: 'var(--ref-spacing-6)',
+                fontWeight: 'var(--ref-font-weight-bold)',
+              }}
+            >
+              Unforgettable Experiences
+            </h2>
+            <p 
+              style={{
+                fontSize: 'var(--ref-font-size-xl)',
+                color: 'var(--sem-color-text-body-light)',
+                opacity: 0.9,
+                maxWidth: '700px',
+                margin: '0 auto',
+              }}
+            >
+              Enjoy Lapland's peace and beauty surrounded by modern luxury
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--ref-spacing-10)]" style={{ marginTop: 'var(--ref-spacing-16)' }}>
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="feature-card"
+                style={{
+                  background: 'rgba(0, 0, 0, 0.3)',
+                  border: '1px solid rgba(189, 152, 75, 0.2)',
+                  borderRadius: 'var(--ref-radius-2xl)',
+                  padding: 'var(--ref-spacing-10)',
+                  transition: 'all var(--ref-duration-slow)',
+                }}
+              >
+                <div 
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    background: 'var(--sem-color-primary-base)',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: 'var(--ref-spacing-6)',
+                    fontSize: 'var(--ref-font-size-2xl)',
+                  }}
+                >
+                  {feature.icon}
                 </div>
-                <span className="text-gray-600">Premium Experience</span>
+                <h3 
+                  style={{
+                    color: 'var(--sem-color-primary-base)',
+                    fontSize: 'var(--ref-font-size-2xl)',
+                    marginBottom: 'var(--ref-spacing-4)',
+                    fontWeight: 'var(--ref-font-weight-semibold)',
+                  }}
+                >
+                  {feature.title}
+                </h3>
+                <p 
+                  style={{
+                    color: 'var(--sem-color-text-body-light)',
+                    lineHeight: 1.6,
+                    opacity: 0.9,
+                  }}
+                >
+                  {feature.description}
+                </p>
               </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-w-16 aspect-h-12 bg-gray-200 rounded-lg overflow-hidden">
-                <div className="w-full h-80 bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center text-white text-2xl font-semibold">
-                  Northern Lights View
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Accommodations Section */}
+      <section 
+        style={{ 
+          padding: 'var(--ref-spacing-20) var(--ref-spacing-8)',
+          background: 'linear-gradient(135deg, var(--ref-color-neutral-1000) 0%, var(--sem-color-background-content) 100%)',
+        }}
+      >
+        <div className="container max-w-7xl mx-auto">
+          <div className="text-center" style={{ marginBottom: 'var(--ref-spacing-16)' }}>
+            <h2 
+              style={{
+                fontSize: 'clamp(2rem, 4vw, 3rem)',
+                color: 'var(--sem-color-primary-base)',
+                marginBottom: 'var(--ref-spacing-6)',
+                fontWeight: 'var(--ref-font-weight-bold)',
+              }}
+            >
+              Luxurious Accommodation
+            </h2>
+            <p 
+              style={{
+                fontSize: 'var(--ref-font-size-xl)',
+                color: 'var(--sem-color-text-body-light)',
+                opacity: 0.9,
+                maxWidth: '700px',
+                margin: '0 auto',
+              }}
+            >
+              Private Suite accommodation with large glass surfaces and glass ceiling
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--ref-spacing-8)]" style={{ marginTop: 'var(--ref-spacing-16)' }}>
+            {rooms.map((room, index) => (
+              <div 
+                key={index}
+                className="room-card"
+                style={{
+                  borderRadius: 'var(--ref-radius-2xl)',
+                  height: '400px',
+                  backgroundColor: 'var(--sem-color-background-content)',
+                  transition: 'all var(--ref-duration-slow)',
+                }}
+              >
+                <div 
+                  style={{
+                    width: '100%',
+                    height: '70%',
+                    background: 'linear-gradient(135deg, var(--ref-color-brand-blue-500), var(--ref-color-brand-gold-500))',
+                    position: 'relative',
+                    borderTopLeftRadius: 'var(--ref-radius-2xl)',
+                    borderTopRightRadius: 'var(--ref-radius-2xl)',
+                  }}
+                />
+                <div 
+                  className="room-info-overlay"
+                  style={{
+                    padding: 'var(--ref-spacing-6)',
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    color: 'var(--ref-color-neutral-0)',
+                    borderBottomLeftRadius: 'var(--ref-radius-2xl)',
+                    borderBottomRightRadius: 'var(--ref-radius-2xl)',
+                  }}
+                >
+                  <h3 
+                    style={{
+                      fontSize: 'var(--ref-font-size-2xl)',
+                      fontWeight: 'var(--ref-font-weight-semibold)',
+                      marginBottom: 'var(--ref-spacing-2)',
+                    }}
+                  >
+                    {room.title}
+                  </h3>
+                  <p 
+                    style={{
+                      fontSize: 'var(--ref-font-size-base)',
+                      opacity: 0.9,
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    {room.description}
+                  </p>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Activities Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Book an unforgettable adventure in Levi
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Enhance your holiday with activities: spend a day on a snowmobile safari, have fun on a dog sled ride, 
-              or go snowshoeing in the stunning nature. Fill out the form below to receive a tailored offer for activities.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MapPin className="text-blue-600" size={32} />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Snowmobile Safari</h3>
-              <p className="text-gray-600">Experience the thrill of riding through Lapland&apos;s pristine wilderness</p>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Calendar className="text-green-600" size={32} />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Dog Sled Ride</h3>
-              <p className="text-gray-600">Feel the magic of being pulled by huskies through snowy landscapes</p>
-            </div>
-            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="text-purple-600" size={32} />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Snowshoeing</h3>
-              <p className="text-gray-600">Explore the stunning nature on foot with traditional snowshoes</p>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <Link
-              href="/travel-itineraries"
-              className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-700 transition-colors duration-200"
-            >
-              Explore our travel itineraries
-              <ArrowRight className="ml-2" size={20} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Location Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold mb-6">
-              Great adventures and unforgettable flavors – Levi as a holiday destination
-            </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12">
-              Near the village of Sirkka rises Levi – a well-known winter sports destination, where you can find things to see and do all year round. 
-              Trek, hike or snowshoe to the fells, capture the most splendid moments in photos and enjoy authentic Lappish flavors. 
-              Come and experience Lapland&apos;s enchanting nature!
-            </p>
-            <Link
-              href="/activities"
-              className="inline-flex items-center bg-white text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors duration-200"
-            >
-              Get to know Levi
-              <ArrowRight className="ml-2" size={20} />
-            </Link>
-          </div>
+      {/* CTA Section */}
+      <section 
+        className="cta-pattern relative overflow-hidden text-center"
+        style={{
+          padding: 'var(--ref-spacing-32) var(--ref-spacing-8)',
+          background: 'linear-gradient(135deg, var(--ref-color-brand-blue-500) 0%, var(--ref-color-brand-gold-500) 100%)',
+        }}
+      >
+        <div className="relative z-10">
+          <h2 
+            style={{
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
+              color: 'var(--ref-color-neutral-0)',
+              marginBottom: 'var(--ref-spacing-6)',
+              fontWeight: 'var(--ref-font-weight-bold)',
+            }}
+          >
+            Book Your Dream Vacation
+          </h2>
+          <p 
+            style={{
+              fontSize: 'var(--ref-font-size-xl)',
+              color: 'var(--ref-color-neutral-0)',
+              marginBottom: 'var(--ref-spacing-12)',
+              opacity: 0.95,
+            }}
+          >
+            Experience the magic of Lapland at OloResort's unique accommodation
+          </p>
+          <Link
+            href="/contact"
+            className="btn-primary inline-block"
+          >
+            Check Availability
+          </Link>
         </div>
       </section>
     </div>

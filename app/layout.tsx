@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
-import { MuseoModerno } from "next/font/google";
+import { Montserrat, Lato } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 
-const museoModerno = MuseoModerno({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-museo-moderno",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-montserrat",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
+
+const lato = Lato({
+  subsets: ["latin"],
+  variable: "--font-lato",
+  weight: ["300", "400", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -22,9 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${museoModerno.variable} antialiased`}>
+      <body className={`${montserrat.variable} ${lato.variable} antialiased`}>
         <Navigation />
-        <main>{children}</main>
+        <main className="pt-16 lg:pt-20">{children}</main>
         <Footer />
       </body>
     </html>
