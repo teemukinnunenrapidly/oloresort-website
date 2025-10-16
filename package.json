@@ -4,13 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "tokens:generate": "tsx lib/generate-tokens.ts",
     "tokens:watch": "tsx watch lib/generate-tokens.ts",
     "sanity:init": "sanity init",
     "sanity:manage": "sanity manage"
+  },
+  "engines": {
+    "node": ">=18.18 <23"
   },
   "dependencies": {
     "@cloudflare/stream-react": "^1.9.3",
