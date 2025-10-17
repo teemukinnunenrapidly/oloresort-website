@@ -74,7 +74,8 @@ export default function ActivitiesPage() {
     {
       icon: "🐺",
       title: "Husky Safari",
-      description: "Experience Arctic adventure with a husky team in snowy forests"
+      description: "Experience Arctic adventure with a husky team in snowy forests",
+      image: "https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_800,h_600,c_fill,g_center/ErkkiKemppi_IG_kjsibc_gmirab"
     },
     {
       icon: "🦌",
