@@ -1,0 +1,68 @@
+{
+  "home": [
+    "Navigation",
+    "HeroVideo",
+    "BookingWidget",
+    "FeatureGrid",
+    "AccommodationsSection",
+    "CTASection",
+    "Footer"
+  ],
+  "accommodation": [
+    "Navigation",
+    "HeroSection",
+    "WhyChooseSection",
+    "PrivateSuiteSection",
+    "LoungeSaunaSection",
+    "MapSection",
+    "FAQSection",
+    "CTASection",
+    "Footer"
+  ],
+  "activities": [
+    "Navigation",
+    "HeroSection",
+    "PackageCardsSection",
+    "ActivitiesGallery",
+    "IndividualActivitiesSection",
+    "BookingFormSection",
+    "Footer"
+  ],
+  "gallery": [
+    "Navigation",
+    "GalleryHero",
+    "FilterButtons",
+    "ImageGallery",
+    "Footer"
+  ],
+  "blog": [
+    "Navigation",
+    "BlogHero",
+    "BlogClient",
+    "CategoriesSection",
+    "FeaturedArticle",
+    "BlogGrid",
+    "PopularArticlesSidebar",
+    "NewsletterSection",
+    "Footer"
+  ],
+  "travel-itineraries": [
+    "Navigation",
+    "HeroSection",
+    "ItinerarySelector",
+    "TimelineSection",
+    "SampleDaySchedule",
+    "TipsSection",
+    "CTASection",
+    "Footer"
+  ],
+  "contact": [
+    "Navigation",
+    "HeroSection",
+    "ContactInfoCard",
+    "ContactForm",
+    "MapSection",
+    "Footer"
+  ]
+}
+

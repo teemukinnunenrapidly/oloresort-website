@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
+import WeatherWidget from './WeatherWidget';
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -34,7 +36,6 @@ export default function Navigation() {
     { label: 'Accommodation', href: '/accommodation' },
     { label: 'Activities', href: '/activities' },
     { label: 'Travel Itineraries', href: '/travel-itineraries' },
-    { label: 'Gallery', href: '/gallery' },
     { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
   ];
@@ -42,49 +43,70 @@ export default function Navigation() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 transition-all ${
-        isScrolled ? 'shadow-md' : ''
+        isScrolled ? 'scrolled-header' : ''
       }`}
       style={{
         zIndex: 1000,
-        backgroundColor: isScrolled ? 'rgba(24, 18, 18, 0.95)' : 'rgba(24, 18, 18, 0.8)',
-        backdropFilter: 'blur(10px)',
-        transition: 'all var(--ref-duration-slow)',
+        backgroundColor: isScrolled ? 'rgba(30, 30, 30, 0.92)' : 'transparent',
+        backdropFilter: isScrolled ? 'blur(16px) saturate(1.2)' : 'none',
+        WebkitBackdropFilter: isScrolled ? 'blur(16px) saturate(1.2)' : 'none',
+        transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
         fontFamily: 'var(--ref-font-family-display)',
+        borderBottom: isScrolled ? '1px solid rgba(200, 164, 106, 0.15)' : '1px solid transparent',
+        boxShadow: isScrolled ? '0 8px 32px -8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(200, 164, 106, 0.05)' : 'none',
       }}
     >
-      <nav 
-        className="max-w-7xl mx-auto flex items-center justify-between"
+      {/* Secondary Menu - Visible only at top */}
+      <div 
+        className="hidden lg:block secondary-menu"
         style={{
-          padding: 'var(--ref-spacing-4) var(--ref-spacing-8)',
+          opacity: isScrolled ? 0 : 1,
+          transform: isScrolled ? 'translateY(-120%) scale(0.95)' : 'translateY(0) scale(1)',
+          transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          height: isScrolled ? '0px' : '32px',
+          overflow: 'hidden',
+          pointerEvents: isScrolled ? 'none' : 'auto',
         }}
       >
-        {/* Logo */}
-        <Link
-          href="/"
-          className="nav-logo"
+        <div 
+          className="max-w-7xl mx-auto"
           style={{
-            fontSize: 'var(--ref-font-size-3xl)',
-            fontWeight: 'var(--ref-font-weight-bold)',
-            color: 'var(--sem-color-primary-base)',
-            textDecoration: 'none',
-            letterSpacing: '0.05em',
-            transition: 'all var(--ref-duration-base)',
+            padding: 'var(--ref-spacing-1) var(--ref-spacing-8)',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+            height: '100%',
           }}
         >
-          OloResort
-        </Link>
-
-        {/* Desktop Navigation */}
+          <WeatherWidget />
+        </div>
+      </div>
+      <nav 
+        className="max-w-7xl mx-auto main-nav"
+        style={{
+          padding: isScrolled 
+            ? 'var(--ref-spacing-3) var(--ref-spacing-8)' 
+            : 'var(--ref-spacing-4) var(--ref-spacing-8)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          background: 'transparent',
+          position: 'relative',
+          transition: 'padding 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+        }}
+      >
+        {/* Left Section - Desktop Navigation */}
         <ul 
-          className="hidden lg:flex items-center"
+          className="hidden lg:flex items-center justify-start"
           style={{
-            gap: 'var(--ref-spacing-8)',
+            gap: 'var(--ref-spacing-6)',
             listStyle: 'none',
             margin: 0,
             padding: 0,
+            flex: '0 0 auto',
           }}
         >
-          {navigationLinks.map((link) => (
+          {navigationLinks.slice(0, 3).map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
@@ -105,28 +127,108 @@ export default function Navigation() {
           ))}
         </ul>
 
-        {/* Desktop CTA Button */}
-        <Link
-          href="/contact"
-          className="hidden lg:inline-block nav-book-button"
+          {/* Center Section - Logo */}
+          <Link
+            href="/"
+            className="nav-logo"
+            style={{
+              textDecoration: 'none',
+              transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'absolute',
+              left: '50%',
+              top: isScrolled ? '50%' : '-20px',
+              transform: isScrolled 
+                ? 'translate(-50%, -50%) scale(0.75)' 
+                : 'translateX(-50%) scale(1)',
+              transformOrigin: 'center',
+            }}
+          >
+            <Image
+              src="/images/oloresort-logo-ilman-tekstia.png"
+              alt="OloResort"
+              width={220}
+              height={110}
+              style={{
+                height: 'auto',
+                maxHeight: isScrolled ? '80px' : '110px',
+                objectFit: 'contain',
+                transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                filter: isScrolled ? 'brightness(1.1)' : 'brightness(1)',
+              }}
+              priority
+            />
+          </Link>
+
+        {/* Right Section - Desktop Navigation & CTA */}
+        <div 
+          className="hidden lg:flex items-center justify-end"
           style={{
-            background: 'var(--sem-color-primary-base)',
-            color: 'var(--ref-color-neutral-0)',
-            padding: 'var(--ref-spacing-3) var(--ref-spacing-8)',
-            borderRadius: 'var(--ref-radius-full)',
-            textDecoration: 'none',
-            fontWeight: 'var(--ref-font-weight-semibold)',
-            transition: 'all var(--ref-duration-base)',
-            boxShadow: '0 4px 15px rgba(189, 152, 75, 0.3)',
+            gap: 'var(--ref-spacing-6)',
+            flex: '0 0 auto',
           }}
         >
-          Book Now
-        </Link>
+          <ul 
+            style={{
+              display: 'flex',
+              gap: 'var(--ref-spacing-6)',
+              listStyle: 'none',
+              margin: 0,
+              padding: 0,
+              alignItems: 'center',
+            }}
+          >
+            {navigationLinks.slice(3).map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="nav-link"
+                  style={{
+                    color: 'var(--sem-color-text-body-light)',
+                    textDecoration: 'none',
+                    fontSize: 'var(--ref-font-size-base)',
+                    fontWeight: 'var(--ref-font-weight-medium)',
+                    transition: 'all var(--ref-duration-base)',
+                    position: 'relative',
+                    padding: 'var(--ref-spacing-2) 0',
+                  }}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          
+          <Link
+            href="/contact"
+            className="nav-book-button"
+            style={{
+              background: isScrolled 
+                ? 'linear-gradient(135deg, #C8A46A 0%, #D4B07A 100%)' 
+                : 'var(--sem-color-primary-base)',
+              color: 'var(--ref-color-neutral-0)',
+              padding: 'var(--ref-spacing-3) var(--ref-spacing-8)',
+              borderRadius: 'var(--ref-radius-full)',
+              textDecoration: 'none',
+              fontWeight: 'var(--ref-font-weight-semibold)',
+              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+              boxShadow: isScrolled 
+                ? '0 4px 20px rgba(200, 164, 106, 0.4)' 
+                : '0 4px 15px rgba(189, 152, 75, 0.3)',
+              whiteSpace: 'nowrap',
+              transform: isScrolled ? 'scale(1.05)' : 'scale(1)',
+            }}
+          >
+            Book Now
+          </Link>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="lg:hidden"
+          className="lg:hidden justify-self-end"
           style={{
             padding: 'var(--ref-spacing-2)',
             color: 'var(--sem-color-text-body-light)',
@@ -215,6 +317,17 @@ export default function Navigation() {
           >
             Book Now
           </Link>
+
+          {/* Weather Widget in Mobile Menu */}
+          <div 
+            style={{
+              marginTop: 'var(--ref-spacing-6)',
+              display: 'flex',
+              justifyContent: 'center',
+            }}
+          >
+            <WeatherWidget />
+          </div>
 
           {/* Contact Info in Mobile Menu */}
           <div 

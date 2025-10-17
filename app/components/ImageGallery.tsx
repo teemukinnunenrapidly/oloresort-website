@@ -156,7 +156,7 @@ export default function ImageGallery({
           right: 0;
           bottom: 0;
           background: rgba(0, 0, 0, 0.95);
-          z-index: 9999;
+          z-index: 900;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -194,7 +194,7 @@ export default function ImageGallery({
           justify-content: center;
           cursor: pointer;
           transition: all var(--ref-duration-base);
-          z-index: 10000;
+          z-index: 950;
         }
 
         .lightbox-close:hover {
@@ -216,7 +216,7 @@ export default function ImageGallery({
           justify-content: center;
           cursor: pointer;
           transition: all var(--ref-duration-base);
-          z-index: 10000;
+          z-index: 950;
         }
 
         .lightbox-nav:hover {
@@ -249,7 +249,7 @@ export default function ImageGallery({
           color: var(--ref-color-neutral-0);
           font-family: var(--ref-font-family-display);
           font-size: var(--ref-font-size-lg);
-          z-index: 10000;
+          z-index: 950;
         }
 
         .lightbox-counter {

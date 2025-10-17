@@ -101,7 +101,6 @@ export default async function BlogPage() {
         className="relative flex items-center justify-center overflow-hidden"
         style={{
           minHeight: '60vh',
-          marginTop: '64px',
           background: `linear-gradient(
             135deg,
             rgba(30, 58, 138, 0.7),

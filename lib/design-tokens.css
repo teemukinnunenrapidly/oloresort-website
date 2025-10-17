@@ -7,7 +7,7 @@
   --ref-color-brand-gold-200: #fae19e;
   --ref-color-brand-gold-300: #f7d377;
   --ref-color-brand-gold-400: #e6b95a;
-  --ref-color-brand-gold-500: #bd984b;
+  --ref-color-brand-gold-500: #C8A46A;
   --ref-color-brand-gold-600: #9a7a3c;
   --ref-color-brand-gold-700: #7a6030;
   --ref-color-brand-gold-800: #5c4824;
@@ -21,8 +21,8 @@
   --ref-color-neutral-500: #6b7280;
   --ref-color-neutral-600: #4b5563;
   --ref-color-neutral-700: #374151;
-  --ref-color-neutral-800: #2E2828;
-  --ref-color-neutral-900: #181212;
+  --ref-color-neutral-800: #1E1E1E;
+  --ref-color-neutral-900: #1E1E1E;
   --ref-color-neutral-1000: #000000;
   --ref-color-accent-purple: #7c3aed;
   --ref-color-accent-blue: #0ea5e9;
@@ -147,10 +147,10 @@
   --ref-motion-easing-emphasized: cubic-bezier(0.83, 0, 0.17, 1);
   --ref-focusRing-width: 2px;
   --ref-focusRing-style: solid;
-  --ref-focusRing-color: #bd984b;
+  --ref-focusRing-color: #C8A46A;
   --ref-focusRing-offset: 2px;
   --ref-focusRing-opacity: 0.25;
-  --ref-dataviz-color-primary: #bd984b;
+  --ref-dataviz-color-primary: #C8A46A;
   --ref-dataviz-color-tertiary: #7c3aed;
   --ref-dataviz-color-quaternary: #10b981;
   --ref-dataviz-color-quinary: #f97316;
@@ -166,30 +166,30 @@
   --ref-dataviz-color-sequential-gold-1: #fae19e;
   --ref-dataviz-color-sequential-gold-2: #f7d377;
   --ref-dataviz-color-sequential-gold-3: #e6b95a;
-  --ref-dataviz-color-sequential-gold-4: #bd984b;
+  --ref-dataviz-color-sequential-gold-4: #C8A46A;
   --ref-dataviz-color-sequential-gold-5: #9a7a3c;
   --ref-dataviz-color-sequential-gold-6: #7a6030;
-  --sem-color-primary-base: #bd984b;
+  --sem-color-primary-base: #C8A46A;
   --sem-color-primary-hover: #e6b95a;
   --sem-color-primary-active: #9a7a3c;
   --sem-color-primary-disabled: #f7d377;
   --sem-color-background-page: #ffffff;
-  --sem-color-background-header: #181212;
-  --sem-color-background-content: #2E2828;
+  --sem-color-background-header: #1E1E1E;
+  --sem-color-background-content: #1E1E1E;
   --sem-color-background-surface: #ffffff;
   --sem-color-background-overlay: rgba(0, 0, 0, 0.5);
-  --sem-color-text-heading: #bd984b;
+  --sem-color-text-heading: #C8A46A;
   --sem-color-text-body-light: #F8F5F0;
   --sem-color-text-body-dark: #374151;
   --sem-color-text-muted: #6b7280;
   --sem-color-text-disabled: #9ca3af;
-  --sem-color-text-link-base: #bd984b;
+  --sem-color-text-link-base: #C8A46A;
   --sem-color-text-link-hover: #9a7a3c;
   --sem-color-text-link-visited: #7a6030;
   --sem-color-border-light: #e5e7eb;
   --sem-color-border-base: #d1d5db;
   --sem-color-border-dark: #9ca3af;
-  --sem-color-border-focus: #bd984b;
+  --sem-color-border-focus: #C8A46A;
   --sem-color-status-success: #10b981;
   --sem-color-status-warning: #f59e0b;
   --sem-color-status-error: #ef4444;
@@ -266,7 +266,7 @@
   --sem-transition-fast-timing: ease-out;
   --sem-transition-slow-duration: 300ms;
   --sem-transition-slow-timing: ease-in-out;
-  --comp-button-primary-background-base: #bd984b;
+  --comp-button-primary-background-base: #C8A46A;
   --comp-button-primary-background-hover: #e6b95a;
   --comp-button-primary-background-active: #9a7a3c;
   --comp-button-primary-background-disabled: #f7d377;
@@ -283,19 +283,19 @@
   --comp-button-secondary-background-hover: #F8F5F0;
   --comp-button-secondary-background-active: #f3f4f6;
   --comp-button-secondary-background-disabled: #f3f4f6;
-  --comp-button-secondary-text-base: #bd984b;
+  --comp-button-secondary-text-base: #C8A46A;
   --comp-button-secondary-text-hover: #e6b95a;
   --comp-button-secondary-text-disabled: #9ca3af;
   --comp-button-secondary-border-radius: 9999px;
   --comp-button-secondary-border-width: 2px;
-  --comp-button-secondary-border-color: #bd984b;
+  --comp-button-secondary-border-color: #C8A46A;
   --comp-button-secondary-padding-x: 2rem;
   --comp-button-secondary-padding-y: 1rem;
   --comp-button-secondary-typography-size: 1.125rem;
   --comp-button-secondary-typography-weight: 600;
   --comp-button-secondary-transition: {semantic.transition.default};
-  --comp-card-background-base: #2E2828;
-  --comp-card-background-hover: #2E2828;
+  --comp-card-background-base: #1E1E1E;
+  --comp-card-background-hover: #1E1E1E;
   --comp-card-text: #F8F5F0;
   --comp-card-border-radius: 0.5rem;
   --comp-card-border-width: 0;
@@ -309,7 +309,7 @@
   --comp-input-border-radius: 0.5rem;
   --comp-input-border-width: 1px;
   --comp-input-border-color-base: #d1d5db;
-  --comp-input-border-color-focus: #bd984b;
+  --comp-input-border-color-focus: #C8A46A;
   --comp-input-border-color-error: #ef4444;
   --comp-input-padding-x: 1rem;
   --comp-input-padding-y: 0.75rem;
@@ -317,16 +317,16 @@
   --comp-input-typography-weight: 400;
   --comp-input-focus-ring-width: 2px;
   --comp-input-focus-ring-color: rgba(189, 152, 75, 0.2);
-  --comp-navigation-background: #181212;
+  --comp-navigation-background: #1E1E1E;
   --comp-navigation-text-base: #F8F5F0;
-  --comp-navigation-text-hover: #bd984b;
-  --comp-navigation-text-active: #bd984b;
+  --comp-navigation-text-hover: #C8A46A;
+  --comp-navigation-text-active: #C8A46A;
   --comp-navigation-height: 4rem;
   --comp-navigation-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --comp-footer-background: #2E2828;
+  --comp-footer-background: #1E1E1E;
   --comp-footer-text-base: #F8F5F0;
   --comp-footer-text-link-base: #F8F5F0;
-  --comp-footer-text-link-hover: #bd984b;
+  --comp-footer-text-link-hover: #C8A46A;
   --comp-footer-padding: 3rem;
   --comp-package-card-background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(189, 152, 75, 0.1));
   --comp-package-card-border-color: rgba(189, 152, 75, 0.3);
@@ -363,10 +363,10 @@
   --comp-form-input-padding: 1rem;
   --comp-form-input-typography-size: 1rem;
   --comp-form-input-typography-family: Lato, sans-serif;
-  --comp-form-input-focus-border: #bd984b;
+  --comp-form-input-focus-border: #C8A46A;
   --comp-form-input-focus-background: rgba(255, 255, 255, 0.1);
   --comp-form-input-focus-shadow: 0 0 20px rgba(189, 152, 75, 0.2);
-  --comp-form-label-color: #bd984b;
+  --comp-form-label-color: #C8A46A;
   --comp-form-label-typography-size: 1.125rem;
   --comp-form-label-typography-weight: 600;
   --comp-activity-gallery-card-height: 400px;
@@ -385,11 +385,41 @@
   --comp-activity-item-border-radius: 0.75rem;
   --comp-activity-item-padding: 2rem;
   --comp-activity-item-transition: {semantic.transition.default};
+  --comp-experienceSection-section-padding: 8rem 2rem;
+  --comp-experienceSection-section-background: #FFFFFF;
+  --comp-experienceSection-title-typography-family: Montserrat, sans-serif;
+  --comp-experienceSection-title-typography-weight: 700;
+  --comp-experienceSection-title-typography-size: 3rem;
+  --comp-experienceSection-title-typography-letterSpacing: 0.02em;
+  --comp-experienceSection-title-text: #C8A46A;
+  --comp-experienceSection-subtitle-typography-family: Lato, sans-serif;
+  --comp-experienceSection-subtitle-typography-size: 1.25rem;
+  --comp-experienceSection-subtitle-typography-lineHeight: 1.75;
+  --comp-experienceSection-subtitle-text: #6b7280;
+  --comp-experienceSection-featureCard-background: #FAFAF9;
+  --comp-experienceSection-featureCard-border: 1px solid rgba(200, 164, 106, 0.15);
+  --comp-experienceSection-featureCard-borderRadius: 1rem;
+  --comp-experienceSection-featureCard-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --comp-experienceSection-featureCard-hoverShadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  --comp-experienceSection-featureCard-transition: 500ms ease-in-out;
+  --comp-experienceSection-icon-size: 3rem;
+  --comp-experienceSection-icon-color: #C8A46A;
+  --comp-experienceSection-icon-background: rgba(200, 164, 106, 0.1);
+  --comp-experienceSection-icon-borderRadius: 0.75rem;
+  --comp-experienceSection-icon-padding: 1rem;
+  --comp-experienceSection-featureTitle-typography-family: Montserrat, sans-serif;
+  --comp-experienceSection-featureTitle-typography-weight: 600;
+  --comp-experienceSection-featureTitle-typography-size: 1.5rem;
+  --comp-experienceSection-featureTitle-text: #1E1E1E;
+  --comp-experienceSection-featureDescription-typography-family: Lato, sans-serif;
+  --comp-experienceSection-featureDescription-typography-size: 1rem;
+  --comp-experienceSection-featureDescription-typography-lineHeight: 1.75;
+  --comp-experienceSection-featureDescription-text: #4b5563;
 }
 
 /* Utility Classes */
-.text-primary-base { color: #bd984b; }
-.bg-primary-base { background-color: #bd984b; }
+.text-primary-base { color: #C8A46A; }
+.bg-primary-base { background-color: #C8A46A; }
 .text-primary-hover { color: #e6b95a; }
 .bg-primary-hover { background-color: #e6b95a; }
 .text-primary-active { color: #9a7a3c; }
@@ -398,16 +428,16 @@
 .bg-primary-disabled { background-color: #f7d377; }
 .text-background-page { color: #ffffff; }
 .bg-background-page { background-color: #ffffff; }
-.text-background-header { color: #181212; }
-.bg-background-header { background-color: #181212; }
-.text-background-content { color: #2E2828; }
-.bg-background-content { background-color: #2E2828; }
+.text-background-header { color: #1E1E1E; }
+.bg-background-header { background-color: #1E1E1E; }
+.text-background-content { color: #1E1E1E; }
+.bg-background-content { background-color: #1E1E1E; }
 .text-background-surface { color: #ffffff; }
 .bg-background-surface { background-color: #ffffff; }
 .text-background-overlay { color: rgba(0, 0, 0, 0.5); }
 .bg-background-overlay { background-color: rgba(0, 0, 0, 0.5); }
-.text-text-heading { color: #bd984b; }
-.bg-text-heading { background-color: #bd984b; }
+.text-text-heading { color: #C8A46A; }
+.bg-text-heading { background-color: #C8A46A; }
 .text-text-muted { color: #6b7280; }
 .bg-text-muted { background-color: #6b7280; }
 .text-text-disabled { color: #9ca3af; }
@@ -418,8 +448,8 @@
 .bg-border-base { background-color: #d1d5db; }
 .text-border-dark { color: #9ca3af; }
 .bg-border-dark { background-color: #9ca3af; }
-.text-border-focus { color: #bd984b; }
-.bg-border-focus { background-color: #bd984b; }
+.text-border-focus { color: #C8A46A; }
+.bg-border-focus { background-color: #C8A46A; }
 .text-status-success { color: #10b981; }
 .bg-status-success { background-color: #10b981; }
 .text-status-warning { color: #f59e0b; }

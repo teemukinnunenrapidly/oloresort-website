@@ -1,275 +1,96 @@
 import Link from "next/link";
-import HeroVideo from "./components/HeroVideo";
-import BookingWidget from "./components/BookingWidget";
+import HeroVideoAlternative from "./components/HeroVideoAlternative";
+import ExperienceMasonry from "./components/ExperienceMasonry";
+import PrivateSuiteTeaser from "./components/PrivateSuiteTeaser";
 
 export default function Home() {
-  const features = [
-    {
-      icon: "✨",
-      title: "Northern Lights from Your Bed",
-      description: "Watch the dancing northern lights from the warmth of your blanket. Large glass surfaces and a glass ceiling offer an unobstructed view of the Lapland night sky."
-    },
-    {
-      icon: "🏔️",
-      title: "In the Heart of Nature",
-      description: "Peaceful location in the embrace of nature, yet just a short distance from Levi's services and slopes."
-    },
-    {
-      icon: "🦌",
-      title: "Unique Activities",
-      description: "Snowmobile safaris, husky rides, reindeer rides and snowshoeing - experience Lapland winter at its best."
-    },
-    {
-      icon: "🍽️",
-      title: "Local Gourmet Food",
-      description: "Enjoy delicious breakfast and dinner combining local ingredients and modern cuisine."
-    },
-    {
-      icon: "🧖",
-      title: "Finnish Sauna",
-      description: "Relax in a traditional Finnish sauna and enjoy a perfect moment in the peace of nature."
-    },
-    {
-      icon: "🛏️",
-      title: "Premium Furnishings",
-      description: "Each suite is luxuriously furnished, including a private kitchen, bathroom and all modern amenities."
-    }
-  ];
-
-  const rooms = [
-    {
-      title: "Private Suite",
-      description: "Luxurious suite for two, glass ceiling and panoramic views"
-    },
-    {
-      title: "Premium Suite",
-      description: "More spacious suite, fully equipped kitchen and living area"
-    },
-    {
-      title: "Deluxe Suite",
-      description: "Luxury suite with private terrace and outdoor hot tub"
-    }
-  ];
-
   return (
-    <div className="min-h-screen" style={{ background: 'var(--ref-color-neutral-1000)' }}>
+    <div className="min-h-screen" style={{ background: 'transparent' }}>
       
       {/* Hero Section with Video */}
       <section 
-        className="relative flex items-center justify-center overflow-hidden"
+        className="relative flex items-center justify-center"
         style={{
           height: '100vh',
+          minHeight: '600px',
+          overflow: 'visible',
+          position: 'relative'
         }}
       >
-        {/* Cloudflare Stream Video */}
-        <HeroVideo />
+        {/* Background image that continues to next section */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: `url("https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill,g_north/Content_for_OloResort_Levi_from_lesmoonwalkers_mariuskaening_merry_amber17_mufhwu")`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center top',
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'fixed',
+            pointerEvents: 'none',
+            zIndex: 0
+          }}
+        />
         
-        <div className="relative z-10 text-center fade-in-up" style={{ 
-          maxWidth: '900px', 
-          padding: '0 var(--ref-spacing-8)' 
+        {/* Glassmorphism overlay */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'rgba(255, 255, 255, 0.08)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            pointerEvents: 'none',
+            zIndex: 1
+          }}
+        />
+        
+        {/* Cloudflare Stream Video */}
+        <HeroVideoAlternative />
+        
+        {/* Main content - left side on desktop */}
+        <div className="relative z-40 text-center md:text-left fade-in-up md:absolute md:left-20 md:top-1/2 md:-translate-y-1/2 px-8 md:px-0" style={{ 
+          maxWidth: '600px', 
+          animation: 'fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both',
         }}>
           <h1 
             style={{
-              fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-              fontWeight: 'var(--ref-font-weight-bold)',
-              color: 'var(--sem-color-primary-base)',
+              fontFamily: 'Montserrat, sans-serif',
+              fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+              fontWeight: '700',
+              color: '#C8A46A',
               marginBottom: 'var(--ref-spacing-6)',
-              textShadow: '2px 2px 10px rgba(0, 0, 0, 0.5)',
-              letterSpacing: '0.02em',
-              lineHeight: 1.1,
+              textShadow: '2px 2px 16px rgba(0, 0, 0, 0.5)',
+              letterSpacing: '-0.02em',
+              lineHeight: 1.15,
             }}
           >
             Unique Accommodation Experience in Levi
           </h1>
           <p 
             style={{
-              fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
-              color: 'var(--ref-color-neutral-0)',
-              marginBottom: 'var(--ref-spacing-12)',
-              fontWeight: 'var(--ref-font-weight-light)',
-              textShadow: '1px 1px 5px rgba(0, 0, 0, 0.7)',
+              fontFamily: 'Lato, sans-serif',
+              fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+              color: '#E8E1D4',
+              marginBottom: 'var(--ref-spacing-16)',
+              fontWeight: '400',
+              textShadow: '1px 1px 8px rgba(0, 0, 0, 0.6)',
+              lineHeight: 1.65,
+              opacity: 0.95,
             }}
           >
             Experience the enchanting nature of Lapland from our luxurious glass igloos
           </p>
-          <BookingWidget />
         </div>
+
       </section>
 
-      {/* Experience Section */}
-      <section style={{ 
-        padding: 'var(--ref-spacing-20) var(--ref-spacing-8)',
-        backgroundColor: 'var(--sem-color-background-content)'
-      }}>
-        <div className="container max-w-7xl mx-auto">
-          <div className="text-center" style={{ marginBottom: 'var(--ref-spacing-16)' }}>
-            <h2 
-              style={{
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
-                color: 'var(--sem-color-primary-base)',
-                marginBottom: 'var(--ref-spacing-6)',
-                fontWeight: 'var(--ref-font-weight-bold)',
-              }}
-            >
-              Unforgettable Experiences
-            </h2>
-            <p 
-              style={{
-                fontSize: 'var(--ref-font-size-xl)',
-                color: 'var(--sem-color-text-body-light)',
-                opacity: 0.9,
-                maxWidth: '700px',
-                margin: '0 auto',
-              }}
-            >
-              Enjoy Lapland&apos;s peace and beauty surrounded by modern luxury
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--ref-spacing-10)]" style={{ marginTop: 'var(--ref-spacing-16)' }}>
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                className="feature-card"
-                style={{
-                  background: 'rgba(0, 0, 0, 0.3)',
-                  border: '1px solid rgba(189, 152, 75, 0.2)',
-                  borderRadius: 'var(--ref-radius-2xl)',
-                  padding: 'var(--ref-spacing-10)',
-                  transition: 'all var(--ref-duration-slow)',
-                }}
-              >
-                <div 
-                  style={{
-                    width: '60px',
-                    height: '60px',
-                    background: 'var(--sem-color-primary-base)',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: 'var(--ref-spacing-6)',
-                    fontSize: 'var(--ref-font-size-2xl)',
-                  }}
-                >
-                  {feature.icon}
-                </div>
-                <h3 
-                  style={{
-                    color: 'var(--sem-color-primary-base)',
-                    fontSize: 'var(--ref-font-size-2xl)',
-                    marginBottom: 'var(--ref-spacing-4)',
-                    fontWeight: 'var(--ref-font-weight-semibold)',
-                  }}
-                >
-                  {feature.title}
-                </h3>
-                <p 
-                  style={{
-                    color: 'var(--sem-color-text-body-light)',
-                    lineHeight: 1.6,
-                    opacity: 0.9,
-                  }}
-                >
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Experience Masonry Section */}
+      <ExperienceMasonry />
 
-      {/* Accommodations Section */}
-      <section 
-        style={{ 
-          padding: 'var(--ref-spacing-20) var(--ref-spacing-8)',
-          background: 'linear-gradient(135deg, var(--ref-color-neutral-1000) 0%, var(--sem-color-background-content) 100%)',
-        }}
-      >
-        <div className="container max-w-7xl mx-auto">
-          <div className="text-center" style={{ marginBottom: 'var(--ref-spacing-16)' }}>
-            <h2 
-              style={{
-                fontSize: 'clamp(2rem, 4vw, 3rem)',
-                color: 'var(--sem-color-primary-base)',
-                marginBottom: 'var(--ref-spacing-6)',
-                fontWeight: 'var(--ref-font-weight-bold)',
-              }}
-            >
-              Luxurious Accommodation
-            </h2>
-            <p 
-              style={{
-                fontSize: 'var(--ref-font-size-xl)',
-                color: 'var(--sem-color-text-body-light)',
-                opacity: 0.9,
-                maxWidth: '700px',
-                margin: '0 auto',
-              }}
-            >
-              Private Suite accommodation with large glass surfaces and glass ceiling
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--ref-spacing-8)]" style={{ marginTop: 'var(--ref-spacing-16)' }}>
-            {rooms.map((room, index) => (
-              <div 
-                key={index}
-                className="room-card"
-                style={{
-                  borderRadius: 'var(--ref-radius-2xl)',
-                  height: '400px',
-                  backgroundColor: 'var(--sem-color-background-content)',
-                  transition: 'all var(--ref-duration-slow)',
-                }}
-              >
-                <div 
-                  style={{
-                    width: '100%',
-                    height: '70%',
-                    background: 'linear-gradient(135deg, var(--ref-color-brand-blue-500), var(--ref-color-brand-gold-500))',
-                    position: 'relative',
-                    borderTopLeftRadius: 'var(--ref-radius-2xl)',
-                    borderTopRightRadius: 'var(--ref-radius-2xl)',
-                  }}
-                />
-                <div 
-                  className="room-info-overlay"
-                  style={{
-                    padding: 'var(--ref-spacing-6)',
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    color: 'var(--ref-color-neutral-0)',
-                    borderBottomLeftRadius: 'var(--ref-radius-2xl)',
-                    borderBottomRightRadius: 'var(--ref-radius-2xl)',
-                  }}
-                >
-                  <h3 
-                    style={{
-                      fontSize: 'var(--ref-font-size-2xl)',
-                      fontWeight: 'var(--ref-font-weight-semibold)',
-                      marginBottom: 'var(--ref-spacing-2)',
-                    }}
-                  >
-                    {room.title}
-                  </h3>
-                  <p 
-                    style={{
-                      fontSize: 'var(--ref-font-size-base)',
-                      opacity: 0.9,
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {room.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Private Suite Teaser Section */}
+      <PrivateSuiteTeaser />
 
       {/* CTA Section */}
       <section 

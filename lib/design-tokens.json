@@ -17,7 +17,7 @@
           "200": { "$value": "#fae19e", "$type": "color" },
           "300": { "$value": "#f7d377", "$type": "color" },
           "400": { "$value": "#e6b95a", "$type": "color" },
-          "500": { "$value": "#bd984b", "$type": "color" },
+          "500": { "$value": "#C8A46A", "$type": "color" },
           "600": { "$value": "#9a7a3c", "$type": "color" },
           "700": { "$value": "#7a6030", "$type": "color" },
           "800": { "$value": "#5c4824", "$type": "color" },
@@ -34,8 +34,8 @@
         "500": { "$value": "#6b7280", "$type": "color" },
         "600": { "$value": "#4b5563", "$type": "color" },
         "700": { "$value": "#374151", "$type": "color" },
-        "800": { "$value": "#2E2828", "$type": "color" },
-        "900": { "$value": "#181212", "$type": "color" },
+        "800": { "$value": "#1E1E1E", "$type": "color" },
+        "900": { "$value": "#1E1E1E", "$type": "color" },
         "1000": { "$value": "#000000", "$type": "color" }
       },
       "accent": {
@@ -849,6 +849,60 @@
         },
         "padding": { "$value": "{reference.spacing.8}" },
         "transition": { "$value": "{semantic.transition.default}" }
+      }
+    },
+    "experienceSection": {
+      "section": {
+        "padding": { "$value": "8rem 2rem" },
+        "background": { "$value": "#FFFFFF" }
+      },
+      "title": {
+        "typography": {
+          "family": { "$value": "Montserrat, sans-serif" },
+          "weight": { "$value": "700" },
+          "size": { "$value": "3rem" },
+          "letterSpacing": { "$value": "0.02em" }
+        },
+        "text": { "$value": "#C8A46A" }
+      },
+      "subtitle": {
+        "typography": {
+          "family": { "$value": "Lato, sans-serif" },
+          "size": { "$value": "1.25rem" },
+          "lineHeight": { "$value": "1.75" }
+        },
+        "text": { "$value": "#6b7280" }
+      },
+      "featureCard": {
+        "background": { "$value": "#FAFAF9" },
+        "border": { "$value": "1px solid rgba(200, 164, 106, 0.15)" },
+        "borderRadius": { "$value": "1rem" },
+        "shadow": { "$value": "0 4px 6px -1px rgba(0, 0, 0, 0.05)" },
+        "hoverShadow": { "$value": "0 10px 15px -3px rgba(0, 0, 0, 0.08)" },
+        "transition": { "$value": "500ms ease-in-out" }
+      },
+      "icon": {
+        "size": { "$value": "3rem" },
+        "color": { "$value": "#C8A46A" },
+        "background": { "$value": "rgba(200, 164, 106, 0.1)" },
+        "borderRadius": { "$value": "0.75rem" },
+        "padding": { "$value": "1rem" }
+      },
+      "featureTitle": {
+        "typography": {
+          "family": { "$value": "Montserrat, sans-serif" },
+          "weight": { "$value": "600" },
+          "size": { "$value": "1.5rem" }
+        },
+        "text": { "$value": "#1E1E1E" }
+      },
+      "featureDescription": {
+        "typography": {
+          "family": { "$value": "Lato, sans-serif" },
+          "size": { "$value": "1rem" },
+          "lineHeight": { "$value": "1.75" }
+        },
+        "text": { "$value": "#4b5563" }
       }
     }
   }

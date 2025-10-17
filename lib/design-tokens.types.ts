@@ -6,31 +6,31 @@ export interface DesignTokens {
     color: {
       brand: {
         gold: {
-          "50": string;
-          "100": string;
-          "200": string;
-          "300": string;
-          "400": string;
-          "500": string;
-          "600": string;
-          "700": string;
-          "800": string;
-          "900": string;
+          50: string;
+          100: string;
+          200: string;
+          300: string;
+          400: string;
+          500: string;
+          600: string;
+          700: string;
+          800: string;
+          900: string;
         };
       };
       neutral: {
-        "0": string;
-        "50": string;
-        "100": string;
-        "200": string;
-        "300": string;
-        "400": string;
-        "500": string;
-        "600": string;
-        "700": string;
-        "800": string;
-        "900": string;
-        "1000": string;
+        0: string;
+        50: string;
+        100: string;
+        200: string;
+        300: string;
+        400: string;
+        500: string;
+        600: string;
+        700: string;
+        800: string;
+        900: string;
+        1000: string;
       };
       accent: {
         purple: string;
@@ -73,12 +73,12 @@ export interface DesignTokens {
         base: string;
         lg: string;
         xl: string;
-        "2xl": string;
-        "3xl": string;
-        "4xl": string;
-        "5xl": string;
-        "6xl": string;
-        "7xl": string;
+        2xl: string;
+        3xl: string;
+        4xl: string;
+        5xl: string;
+        6xl: string;
+        7xl: string;
       };
       weight: {
         light: string;
@@ -101,24 +101,24 @@ export interface DesignTokens {
       };
     };
     spacing: {
-      "0": string;
-      "1": string;
-      "2": string;
-      "3": string;
-      "4": string;
-      "5": string;
-      "6": string;
-      "8": string;
-      "10": string;
-      "12": string;
-      "16": string;
-      "20": string;
-      "24": string;
-      "32": string;
-      "40": string;
-      "48": string;
-      "56": string;
-      "64": string;
+      0: string;
+      1: string;
+      2: string;
+      3: string;
+      4: string;
+      5: string;
+      6: string;
+      8: string;
+      10: string;
+      12: string;
+      16: string;
+      20: string;
+      24: string;
+      32: string;
+      40: string;
+      48: string;
+      56: string;
+      64: string;
     };
     radius: {
       none: string;
@@ -127,8 +127,8 @@ export interface DesignTokens {
       md: string;
       lg: string;
       xl: string;
-      "2xl": string;
-      "3xl": string;
+      2xl: string;
+      3xl: string;
       full: string;
     };
     shadow: {
@@ -137,7 +137,7 @@ export interface DesignTokens {
       md: string;
       lg: string;
       xl: string;
-      "2xl": string;
+      2xl: string;
       inner: string;
       none: string;
     };
@@ -161,8 +161,8 @@ export interface DesignTokens {
       md: string;
       lg: string;
       xl: string;
-      "2xl": string;
-      "3xl": string;
+      2xl: string;
+      3xl: string;
     };
     elevation: {
       none: string;
@@ -215,23 +215,23 @@ export interface DesignTokens {
         quinary: string;
         senary: string;
         categorical: {
-          "0": string;
-          "1": string;
-          "2": string;
-          "3": string;
-          "4": string;
-          "5": string;
-          "6": string;
+          0: string;
+          1: string;
+          2: string;
+          3: string;
+          4: string;
+          5: string;
+          6: string;
         };
         sequential: {
           gold: {
-            "0": string;
-            "1": string;
-            "2": string;
-            "3": string;
-            "4": string;
-            "5": string;
-            "6": string;
+            0: string;
+            1: string;
+            2: string;
+            3: string;
+            4: string;
+            5: string;
+            6: string;
           };
         };
       };
@@ -281,42 +281,42 @@ export interface DesignTokens {
     };
     typography: {
       heading: {
-        "1": {
+        1: {
           family: string;
           size: string;
           weight: string;
           lineHeight: string;
           letterSpacing: string;
         };
-        "2": {
+        2: {
           family: string;
           size: string;
           weight: string;
           lineHeight: string;
           letterSpacing: string;
         };
-        "3": {
+        3: {
           family: string;
           size: string;
           weight: string;
           lineHeight: string;
           letterSpacing: string;
         };
-        "4": {
+        4: {
           family: string;
           size: string;
           weight: string;
           lineHeight: string;
           letterSpacing: string;
         };
-        "5": {
+        5: {
           family: string;
           size: string;
           weight: string;
           lineHeight: string;
           letterSpacing: string;
         };
-        "6": {
+        6: {
           family: string;
           size: string;
           weight: string;
@@ -648,6 +648,60 @@ export interface DesignTokens {
         };
         padding: string;
         transition: string;
+      };
+    };
+    experienceSection: {
+      section: {
+        padding: string;
+        background: string;
+      };
+      title: {
+        typography: {
+          family: string;
+          weight: string;
+          size: string;
+          letterSpacing: string;
+        };
+        text: string;
+      };
+      subtitle: {
+        typography: {
+          family: string;
+          size: string;
+          lineHeight: string;
+        };
+        text: string;
+      };
+      featureCard: {
+        background: string;
+        border: string;
+        borderRadius: string;
+        shadow: string;
+        hoverShadow: string;
+        transition: string;
+      };
+      icon: {
+        size: string;
+        color: string;
+        background: string;
+        borderRadius: string;
+        padding: string;
+      };
+      featureTitle: {
+        typography: {
+          family: string;
+          weight: string;
+          size: string;
+        };
+        text: string;
+      };
+      featureDescription: {
+        typography: {
+          family: string;
+          size: string;
+          lineHeight: string;
+        };
+        text: string;
       };
     };
   };

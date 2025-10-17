@@ -7,7 +7,13 @@
   "dtcg": {
     "color": {
       "palette": {
-        "gold": { "500": { "$value": "#bd984b", "$type": "color", "$description": "Warm golden hue used as brand primary." } },
+        "gold": { 
+          "500": { "$value": "#C8A46A", "$type": "color", "$description": "Warm golden hue used as brand primary (Messinki)." },
+          "400": { "$value": "#D4B57A", "$type": "color", "$description": "Lighter gold." },
+          "600": { "$value": "#B8945A", "$type": "color", "$description": "Darker gold." }
+        },
+        "sand": { "500": { "$value": "#E8E1D4", "$type": "color", "$description": "Light sand color." } },
+        "charcoal": { "500": { "$value": "#1E1E1E", "$type": "color", "$description": "Dark charcoal gray." } },
         "gray": {
           "50": { "$value": "#f9fafb", "$type": "color" },
           "100": { "$value": "#f3f4f6", "$type": "color" },
@@ -45,8 +51,8 @@
     },
     "font": {
       "family": {
-        "primary": { "$value": "MuseoModerno, sans-serif", "$type": "fontFamily", "$description": "Brand display and headings." },
-        "secondary": { "$value": "MuseoModerno, sans-serif", "$type": "fontFamily", "$description": "Body copy fallback." },
+        "primary": { "$value": "Montserrat, sans-serif", "$type": "fontFamily", "$description": "Brand display and headings." },
+        "secondary": { "$value": "Lato, sans-serif", "$type": "fontFamily", "$description": "Body copy." },
         "mono": { "$value": "Monaco, Courier, monospace", "$type": "fontFamily" }
       },
       "size": {
@@ -72,6 +78,12 @@
         "normal": { "$value": 1.5, "$type": "number" },
         "relaxed": { "$value": 1.75, "$type": "number" },
         "loose": { "$value": 2, "$type": "number" }
+      },
+      "letterSpacing": {
+        "tight": { "$value": "-0.05em", "$type": "dimension" },
+        "normal": { "$value": "0", "$type": "dimension" },
+        "wide": { "$value": "0.05em", "$type": "dimension" },
+        "wider": { "$value": "0.1em", "$type": "dimension" }
       }
     },
     "space": {
@@ -143,11 +155,229 @@
       "overlay": { "$value": 1100, "$type": "number" },
       "modal": { "$value": 1200, "$type": "number" },
       "tooltip": { "$value": 1300, "$type": "number" }
+    },
+    "component": {
+      "loungeSauna": {
+        "section": {
+          "padding": { "$value": "6rem 2rem", "$type": "dimension" },
+          "background": { "$value": "linear-gradient(180deg, #ffffff 0%, #E8E1D4 100%)", "$type": "gradient" }
+        },
+        "badge": {
+          "typography": {
+            "size": { "$value": "0.875rem", "$type": "dimension" }
+          },
+          "text": { "$value": "#bd984b", "$type": "color" }
+        },
+        "title": {
+          "typography": {
+            "family": { "$value": "MuseoModerno, sans-serif", "$type": "fontFamily" },
+            "weight": { "$value": 700, "$type": "number" },
+            "size": { "$value": "3rem", "$type": "dimension" }
+          },
+          "text": { "$value": "#1E1E1E", "$type": "color" }
+        },
+        "divider": {
+          "color": { "$value": "#bd984b", "$type": "color" }
+        },
+        "intro": {
+          "typography": {
+            "size": { "$value": "1.25rem", "$type": "dimension" }
+          },
+          "text": { "$value": "#6b7280", "$type": "color" }
+        },
+        "main": {
+          "shadow": { "$value": "0 25px 50px -12px rgba(0, 0, 0, 0.25)", "$type": "shadow" }
+        },
+        "overlayTitle": {
+          "typography": {
+            "family": { "$value": "MuseoModerno, sans-serif", "$type": "fontFamily" },
+            "weight": { "$value": 700, "$type": "number" },
+            "size": { "$value": "2rem", "$type": "dimension" }
+          }
+        },
+        "thumbLabel": {
+          "typography": {
+            "size": { "$value": "0.875rem", "$type": "dimension" }
+          }
+        },
+        "equipment": {
+          "shadow": { "$value": "0 20px 40px -20px rgba(0, 0, 0, 0.1)", "$type": "shadow" },
+          "name": {
+            "typography": {
+              "family": { "$value": "MuseoModerno, sans-serif", "$type": "fontFamily" },
+              "weight": { "$value": 600, "$type": "number" }
+            },
+            "text": { "$value": "#1E1E1E", "$type": "color" }
+          },
+          "detail": {
+            "typography": {
+              "size": { "$value": "0.875rem", "$type": "dimension" }
+            },
+            "text": { "$value": "#6b7280", "$type": "color" }
+          }
+        },
+        "ctaButton": {
+          "background": { "$value": "#bd984b", "$type": "color" },
+          "text": { "$value": "#ffffff", "$type": "color" },
+          "padding": { "$value": "1.25rem 3rem", "$type": "dimension" },
+          "typography": {
+            "family": { "$value": "MuseoModerno, sans-serif", "$type": "fontFamily" },
+            "weight": { "$value": 600, "$type": "number" },
+            "size": { "$value": "0.875rem", "$type": "dimension" }
+          },
+          "transition": { "$value": "500ms", "$type": "duration" },
+          "hover": {
+            "background": { "$value": "#1E1E1E", "$type": "color" }
+          }
+        }
+      },
+      "suiteGallery": {
+        "section": {
+          "padding": { "$value": "6rem 2rem", "$type": "dimension" },
+          "background": { "$value": "#ffffff", "$type": "color" }
+        },
+        "header": {
+          "typography": {
+            "family": { "$value": "MuseoModerno, sans-serif", "$type": "fontFamily" },
+            "weight": { "$value": 700, "$type": "number" },
+            "size": { "$value": "3rem", "$type": "dimension" }
+          },
+          "text": { "$value": "#111827", "$type": "color" }
+        },
+        "subtitle": {
+          "typography": {
+            "size": { "$value": "1rem", "$type": "dimension" }
+          },
+          "text": { "$value": "#bd984b", "$type": "color" }
+        },
+        "price": {
+          "typography": {
+            "family": { "$value": "MuseoModerno, sans-serif", "$type": "fontFamily" },
+            "weight": { "$value": 700, "$type": "number" },
+            "size": { "$value": "3rem", "$type": "dimension" }
+          },
+          "text": { "$value": "#111827", "$type": "color" }
+        },
+        "priceLabel": {
+          "typography": {
+            "size": { "$value": "0.875rem", "$type": "dimension" }
+          },
+          "text": { "$value": "#6b7280", "$type": "color" }
+        },
+        "masonry": {
+          "rowHeight": { "$value": "300px", "$type": "dimension" },
+          "gap": { "$value": "2px", "$type": "dimension" },
+          "overlay": { "$value": "linear-gradient(to top, rgba(17, 24, 39, 0.6), transparent)", "$type": "gradient" },
+          "transition": { "$value": "600ms", "$type": "duration" }
+        },
+        "caption": {
+          "typography": {
+            "family": { "$value": "MuseoModerno, sans-serif", "$type": "fontFamily" },
+            "weight": { "$value": 600, "$type": "number" },
+            "size": { "$value": "0.875rem", "$type": "dimension" }
+          }
+        },
+        "details": {
+          "padding": { "$value": "4rem", "$type": "dimension" },
+          "background": { "$value": "#F5F1E8", "$type": "color", "$description": "Light sand background for details section" }
+        },
+        "sectionTitle": {
+          "typography": {
+            "family": { "$value": "MuseoModerno, sans-serif", "$type": "fontFamily" },
+            "weight": { "$value": 600, "$type": "number" },
+            "size": { "$value": "1.25rem", "$type": "dimension" }
+          },
+          "text": { "$value": "#111827", "$type": "color" }
+        },
+        "feature": {
+          "typography": {
+            "size": { "$value": "1rem", "$type": "dimension" }
+          },
+          "text": { "$value": "#4b5563", "$type": "color" }
+        },
+        "cta": {
+          "description": {
+            "typography": {
+              "size": { "$value": "1rem", "$type": "dimension" }
+            },
+            "text": { "$value": "#6b7280", "$type": "color" }
+          },
+          "button": {
+            "background": { "$value": "#bd984b", "$type": "color" },
+            "text": { "$value": "#ffffff", "$type": "color" },
+            "padding": { "$value": "1.25rem 3rem", "$type": "dimension" },
+            "typography": {
+              "family": { "$value": "MuseoModerno, sans-serif", "$type": "fontFamily" },
+              "weight": { "$value": 600, "$type": "number" },
+              "size": { "$value": "0.875rem", "$type": "dimension" }
+            },
+            "transition": { "$value": "500ms", "$type": "duration" },
+            "hover": {
+              "background": { "$value": "#F5F1E8", "$type": "color" },
+              "text": { "$value": "#111827", "$type": "color" }
+            }
+          }
+        }
+      },
+      "experienceSection": {
+        "section": {
+          "padding": { "$value": "8rem 2rem", "$type": "dimension" },
+          "background": { "$value": "#FFFFFF", "$type": "color" }
+        },
+        "title": {
+          "typography": {
+            "family": { "$value": "Montserrat, sans-serif", "$type": "fontFamily" },
+            "weight": { "$value": 700, "$type": "number" },
+            "size": { "$value": "3rem", "$type": "dimension" },
+            "letterSpacing": { "$value": "0.02em", "$type": "dimension" }
+          },
+          "text": { "$value": "#C8A46A", "$type": "color" }
+        },
+        "subtitle": {
+          "typography": {
+            "family": { "$value": "Lato, sans-serif", "$type": "fontFamily" },
+            "size": { "$value": "1.25rem", "$type": "dimension" },
+            "lineHeight": { "$value": 1.75, "$type": "number" }
+          },
+          "text": { "$value": "#6b7280", "$type": "color" }
+        },
+        "featureCard": {
+          "background": { "$value": "#FAFAF9", "$type": "color" },
+          "border": { "$value": "1px solid rgba(200, 164, 106, 0.15)", "$type": "string" },
+          "borderRadius": { "$value": "1rem", "$type": "dimension" },
+          "shadow": { "$value": "0 4px 6px -1px rgba(0, 0, 0, 0.05)", "$type": "shadow" },
+          "hoverShadow": { "$value": "0 10px 15px -3px rgba(0, 0, 0, 0.08)", "$type": "shadow" },
+          "transition": { "$value": "500ms ease-in-out", "$type": "string" }
+        },
+        "icon": {
+          "size": { "$value": "3rem", "$type": "dimension" },
+          "color": { "$value": "#C8A46A", "$type": "color" },
+          "background": { "$value": "rgba(200, 164, 106, 0.1)", "$type": "color" },
+          "borderRadius": { "$value": "0.75rem", "$type": "dimension" },
+          "padding": { "$value": "1rem", "$type": "dimension" }
+        },
+        "featureTitle": {
+          "typography": {
+            "family": { "$value": "Montserrat, sans-serif", "$type": "fontFamily" },
+            "weight": { "$value": 600, "$type": "number" },
+            "size": { "$value": "1.5rem", "$type": "dimension" }
+          },
+          "text": { "$value": "#1E1E1E", "$type": "color" }
+        },
+        "featureDescription": {
+          "typography": {
+            "family": { "$value": "Lato, sans-serif", "$type": "fontFamily" },
+            "size": { "$value": "1rem", "$type": "dimension" },
+            "lineHeight": { "$value": 1.75, "$type": "number" }
+          },
+          "text": { "$value": "#4b5563", "$type": "color" }
+        }
+      }
     }
   },
   "colors": {
     "primary": {
-      "main": "#bd984b",
+      "main": "#C8A46A",
       "light": "#d4b570",
       "dark": "#9a7a3c",
       "contrast": "#ffffff"
@@ -177,16 +407,16 @@
     "background": {
       "light": "#ffffff",
       "dark": "#0a0a0a",
-      "header": "#181212",
-      "content": "#2E2828",
-      "contentDark": "#2E2828",
+      "header": "#1E1E1E",
+      "content": "#1E1E1E",
+      "contentDark": "#1E1E1E",
       "gradient": {
-        "hero": "linear-gradient(135deg, #bd984b 0%, #d4b570 50%, #9a7a3c 100%)",
+        "hero": "linear-gradient(135deg, #C8A46A 0%, #D4B57A 50%, #B8945A 100%)",
         "dark": "linear-gradient(135deg, #111827 0%, #1f2937 100%)"
       }
     },
     "text": {
-      "heading": "#bd984b",
+      "heading": "#C8A46A",
       "bodyLight": "#F8F5F0",
       "bodyDark": "#374151",
       "headerLink": "#F8F5F0"
@@ -301,6 +531,168 @@
     "2xl": "1536px"
   },
   "components": {
+    "loungeSauna": {
+      "section": {
+        "padding": "6rem 2rem",
+        "background": "linear-gradient(180deg, #ffffff 0%, #E8E1D4 100%)"
+      },
+      "badge": {
+        "typography": {
+          "size": "0.875rem"
+        },
+        "text": "#bd984b"
+      },
+      "title": {
+        "typography": {
+          "family": "MuseoModerno, sans-serif",
+          "weight": "700",
+          "size": "3rem"
+        },
+        "text": "#1E1E1E"
+      },
+      "divider": {
+        "color": "#bd984b"
+      },
+      "intro": {
+        "typography": {
+          "size": "1.25rem"
+        },
+        "text": "#6b7280"
+      },
+      "main": {
+        "shadow": "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+      },
+      "overlayTitle": {
+        "typography": {
+          "family": "MuseoModerno, sans-serif",
+          "weight": "700",
+          "size": "2rem"
+        }
+      },
+      "thumbLabel": {
+        "typography": {
+          "size": "0.875rem"
+        }
+      },
+      "equipment": {
+        "shadow": "0 20px 40px -20px rgba(0, 0, 0, 0.1)",
+        "name": {
+          "typography": {
+            "family": "MuseoModerno, sans-serif",
+            "weight": "600"
+          },
+          "text": "#1E1E1E"
+        },
+        "detail": {
+          "typography": {
+            "size": "0.875rem"
+          },
+          "text": "#6b7280"
+        }
+      },
+      "ctaButton": {
+        "background": "#bd984b",
+        "text": "#ffffff",
+        "padding": "1.25rem 3rem",
+        "typography": {
+          "family": "MuseoModerno, sans-serif",
+          "weight": "600",
+          "size": "0.875rem"
+        },
+        "transition": "500ms",
+        "hover": {
+          "background": "#1E1E1E"
+        }
+      }
+    },
+    "suiteGallery": {
+      "section": {
+        "padding": "6rem 2rem",
+        "background": "#ffffff"
+      },
+      "header": {
+        "typography": {
+          "family": "MuseoModerno, sans-serif",
+          "weight": "700",
+          "size": "3rem"
+        },
+        "text": "#111827"
+      },
+      "subtitle": {
+        "typography": {
+          "size": "1rem"
+        },
+        "text": "#bd984b"
+      },
+      "price": {
+        "typography": {
+          "family": "MuseoModerno, sans-serif",
+          "weight": "700",
+          "size": "3rem"
+        },
+        "text": "#111827"
+      },
+      "priceLabel": {
+        "typography": {
+          "size": "0.875rem"
+        },
+        "text": "#6b7280"
+      },
+      "masonry": {
+        "rowHeight": "300px",
+        "gap": "2px",
+        "overlay": "linear-gradient(to top, rgba(17, 24, 39, 0.6), transparent)",
+        "transition": "600ms ease-out"
+      },
+      "caption": {
+        "typography": {
+          "family": "MuseoModerno, sans-serif",
+          "weight": "600",
+          "size": "0.875rem"
+        }
+      },
+      "details": {
+        "padding": "4rem",
+        "background": "#F5F1E8"
+      },
+      "sectionTitle": {
+        "typography": {
+          "family": "MuseoModerno, sans-serif",
+          "weight": "600",
+          "size": "1.25rem"
+        },
+        "text": "#111827"
+      },
+      "feature": {
+        "typography": {
+          "size": "1rem"
+        },
+        "text": "#4b5563"
+      },
+      "cta": {
+        "description": {
+          "typography": {
+            "size": "1rem"
+          },
+          "text": "#6b7280"
+        },
+        "button": {
+          "background": "#bd984b",
+          "text": "#ffffff",
+          "padding": "1.25rem 3rem",
+          "typography": {
+            "family": "MuseoModerno, sans-serif",
+            "weight": "600",
+            "size": "0.875rem"
+          },
+          "transition": "500ms ease",
+          "hover": {
+            "background": "#F5F1E8",
+            "text": "#111827"
+          }
+        }
+      }
+    },
     "button": {
       "primary": {
         "background": "#bd984b",

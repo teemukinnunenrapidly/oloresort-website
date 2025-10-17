@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import React from 'react';
 
 export default function ActivitiesPage() {
   const packages = [
@@ -81,12 +84,14 @@ export default function ActivitiesPage() {
     {
       icon: "🏔️",
       title: "Snowmobile Safari",
-      description: "Thrilling action on 2-6 hour safaris on different routes"
+      description: "Thrilling action on 2-6 hour safaris on different routes",
+      image: "https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_800,h_600,c_fill,g_center/Northern_Lights_snowmobile_1_coq0it"
     },
     {
       icon: "✨",
       title: "Northern Lights Hunt",
-      description: "Hunt for dancing lights in the dark night sky"
+      description: "Hunt for dancing lights in the dark night sky",
+      image: "https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_800,h_600,c_fill,g_center/LRT_00170_su5dq6"
     }
   ];
 
@@ -144,22 +149,50 @@ export default function ActivitiesPage() {
       <section
         className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
         style={{
-          marginTop: '64px',
-          background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(189, 152, 75, 0.9))',
+          backgroundImage: `url("https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill,g_center/Northern_lights_Winter_1_copy_qwdsiu")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }}
       >
-        <div className="parallax-bg" style={{
-          background: 'linear-gradient(135deg, var(--sem-color-secondary-base), var(--sem-color-primary-base))'
-        }}></div>
+        {/* Glassmorphism overlay */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'rgba(255, 255, 255, 0.06)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            pointerEvents: 'none',
+            zIndex: 1
+          }}
+        />
+        
+        {/* Aurora Animation */}
+        <div 
+          className="aurora-animation"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'linear-gradient(45deg, transparent, rgba(16, 185, 129, 0.2), transparent, rgba(189, 152, 75, 0.2), transparent)',
+            animation: 'aurora 12s ease-in-out infinite',
+            zIndex: 2
+          }}
+        />
         <div className="relative z-10 text-center fade-in-up" style={{ 
           maxWidth: '900px', 
-          padding: '0 var(--ref-spacing-8)' 
+          padding: '0 var(--ref-spacing-8)',
+          marginTop: 'var(--ref-spacing-16)'
         }}>
           <h1
             style={{
               fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
               fontWeight: 'var(--ref-font-weight-bold)',
-              color: 'var(--ref-color-neutral-0)',
+              color: 'var(--sem-color-primary-base)',
               marginBottom: 'var(--ref-spacing-6)',
               textShadow: '2px 2px 10px rgba(0, 0, 0, 0.5)',
               lineHeight: 'var(--ref-font-lineHeight-tight)',
@@ -197,7 +230,19 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Package Cards Section */}
-      <section className="packages-section" id="paketit" style={{ padding: 'var(--ref-spacing-20) var(--ref-spacing-8)', background: 'var(--sem-color-background-content)' }}>
+      <section 
+        className="packages-section" 
+        id="paketit" 
+        style={{ 
+          padding: 'var(--ref-spacing-20) var(--ref-spacing-8)', 
+          backgroundImage: `url("https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill,g_center/Northern_lights_Winter_1_copy_qwdsiu")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="relative">
         <div className="max-w-[var(--sem-spacing-page-maxWidth)] mx-auto">
           <div className="text-center" style={{ marginBottom: 'var(--ref-spacing-16)' }}>
             <h2
@@ -274,8 +319,10 @@ export default function ActivitiesPage() {
                         <li
                           key={actIndex}
                           style={{
-                            padding: 'var(--ref-spacing-3) 0',
+                            paddingTop: 'var(--ref-spacing-3)',
+                            paddingBottom: 'var(--ref-spacing-3)',
                             paddingLeft: 'var(--ref-spacing-10)',
+                            paddingRight: '0',
                             position: 'relative',
                             fontSize: 'var(--ref-font-size-lg)',
                             lineHeight: 'var(--ref-font-lineHeight-normal)',
@@ -309,8 +356,10 @@ export default function ActivitiesPage() {
                         <li
                           key={actIndex}
                           style={{
-                            padding: 'var(--ref-spacing-3) 0',
+                            paddingTop: 'var(--ref-spacing-3)',
+                            paddingBottom: 'var(--ref-spacing-3)',
                             paddingLeft: 'var(--ref-spacing-10)',
+                            paddingRight: '0',
                             position: 'relative',
                             fontSize: 'var(--ref-font-size-lg)',
                             lineHeight: 'var(--ref-font-lineHeight-normal)',
@@ -337,12 +386,35 @@ export default function ActivitiesPage() {
             ))}
           </div>
         </div>
+        </div>
       </section>
 
       {/* Activities Gallery */}
-      <section className="gallery-section" style={{ padding: 'var(--ref-spacing-20) var(--ref-spacing-8)', background: 'linear-gradient(to bottom, var(--sem-color-background-content), var(--sem-color-background-page))' }}>
+      <section 
+        className="gallery-section" 
+        style={{ 
+          padding: 'var(--ref-spacing-20) var(--ref-spacing-8)', 
+          backgroundImage: `url("https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill,g_center/Northern_lights_Winter_1_ywd1kv")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         <div className="max-w-[var(--sem-spacing-page-maxWidth)] mx-auto">
-          <div className="text-center" style={{ marginBottom: 'var(--ref-spacing-16)' }}>
+          <div 
+            className="text-center glassmorphism-header" 
+            style={{ 
+              marginBottom: 'var(--ref-spacing-16)',
+              background: 'rgba(255, 255, 255, 0.08)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: 'var(--ref-radius-3xl)',
+              padding: 'var(--ref-spacing-12) var(--ref-spacing-8)',
+              margin: '0 auto var(--ref-spacing-16) auto',
+              maxWidth: '800px'
+            }}
+          >
             <h2
               style={{
                 fontSize: 'clamp(2rem, 4vw, 3rem)',
@@ -358,7 +430,7 @@ export default function ActivitiesPage() {
                 fontSize: 'clamp(1rem, 2vw, 1.25rem)',
                 color: 'var(--sem-color-text-body-light)',
                 opacity: '0.9',
-                maxWidth: '700px',
+                maxWidth: '600px',
                 margin: '0 auto',
               }}
             >
@@ -367,33 +439,164 @@ export default function ActivitiesPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--ref-spacing-8)]" style={{ marginTop: 'var(--ref-spacing-16)' }}>
-            {galleryActivities.map((activity, index) => (
-              <div key={index} className="activity-gallery-card">
-                <div className="activity-icon">{activity.icon}</div>
-                <div className="activity-info absolute bottom-0 left-0 right-0 p-[var(--ref-spacing-8)] z-10">
-                  <h3
+            {galleryActivities.map((activity, index) => {
+              const [isHovered, setIsHovered] = React.useState(false);
+              
+              return (
+                <div 
+                  key={index} 
+                  className="activity-gallery-card"
+                  style={{
+                    position: 'relative',
+                    overflow: 'hidden',
+                    borderRadius: 'var(--ref-radius-3xl)',
+                    border: isHovered 
+                      ? '2px solid rgba(200, 164, 106, 0.6)' 
+                      : '1px solid rgba(200, 164, 106, 0.35)',
+                    cursor: 'pointer',
+                    transition: 'all var(--ref-duration-slower) ease-in-out',
+                    transform: isHovered ? 'scale(1.02)' : 'scale(1)',
+                    boxShadow: isHovered 
+                      ? '0 20px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(200, 164, 106, 0.4), inset 0 0 30px rgba(200, 164, 106, 0.15)' 
+                      : '0 10px 30px rgba(0, 0, 0, 0.4), 0 0 30px rgba(200, 164, 106, 0.25), inset 0 0 20px rgba(200, 164, 106, 0.08)',
+                    background: 'linear-gradient(135deg, rgba(200, 164, 106, 0.06) 0%, transparent 60%)',
+                    backgroundImage: activity.image ? `url("${activity.image}")` : 'linear-gradient(135deg, var(--sem-color-background-content), var(--sem-color-background-page))',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    minHeight: '400px'
+                  }}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  {/* Gradient Overlay */}
+                  <div 
                     style={{
-                      fontSize: 'var(--ref-font-size-2xl)',
-                      color: 'var(--ref-color-neutral-0)',
-                      marginBottom: 'var(--ref-spacing-3)',
-                      fontWeight: 'var(--ref-font-weight-semibold)',
+                      position: 'absolute',
+                      inset: 0,
+                      backgroundImage: `linear-gradient(to top, 
+                        rgba(30, 30, 30, 0.95) 0%, 
+                        rgba(30, 30, 30, 0.7) 30%,
+                        rgba(30, 30, 30, 0.4) 50%, 
+                        rgba(30, 30, 30, 0.1) 80%, 
+                        transparent 100%),
+                      linear-gradient(135deg, 
+                        rgba(200, 164, 106, 0.05) 0%, 
+                        transparent 40%)`,
+                      transition: 'opacity var(--ref-duration-slower)',
+                      opacity: isHovered ? 0.9 : 1,
+                    }}
+                  />
+                  
+                  <div className="activity-icon" style={{ 
+                    display: activity.image ? 'none' : 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '80px',
+                    height: '80px',
+                    background: 'rgba(189, 152, 75, 0.9)',
+                    borderRadius: '50%',
+                    fontSize: 'var(--ref-font-size-3xl)',
+                    position: 'absolute',
+                    top: 'var(--ref-spacing-6)',
+                    right: 'var(--ref-spacing-6)',
+                    zIndex: 5,
+                    transform: isHovered ? 'scale(1.1)' : 'scale(1)',
+                    transition: 'transform var(--ref-duration-slower) ease-in-out'
+                  }}>
+                    {activity.icon}
+                  </div>
+                  
+                  <div 
+                    className="activity-info absolute bottom-0 left-0 right-0 z-10"
+                    style={{
+                      padding: 'var(--ref-spacing-12)',
+                      transform: isHovered ? 'translateY(-8px)' : 'translateY(0)',
+                      transition: 'transform var(--ref-duration-slower) ease-in-out',
                     }}
                   >
-                    {activity.title}
-                  </h3>
-                  <p
-                    style={{
-                      color: 'var(--sem-color-text-body-light)',
-                      fontSize: 'var(--ref-font-size-lg)',
-                      lineHeight: 'var(--ref-font-lineHeight-normal)',
-                      opacity: '0.95',
-                    }}
-                  >
-                    {activity.description}
-                  </p>
+                    {/* Small accent line above title */}
+                    <div
+                      style={{
+                        width: '60px',
+                        height: '3px',
+                        background: 'linear-gradient(90deg, #C8A46A 0%, #E5C882 50%, rgba(200, 164, 106, 0.4) 100%)',
+                        marginBottom: 'var(--ref-spacing-6)',
+                        opacity: isHovered ? 1 : 0.8,
+                        transform: isHovered ? 'scaleX(1.5)' : 'scaleX(1)',
+                        transformOrigin: 'left',
+                        transition: 'all var(--ref-duration-slower) cubic-bezier(0.4, 0, 0.2, 1)',
+                        boxShadow: '0 0 10px rgba(200, 164, 106, 0.4)',
+                      }}
+                    />
+                    <h3
+                      style={{
+                        fontSize: 'var(--ref-font-size-3xl)',
+                        color: '#FFFFFF',
+                        marginBottom: 'var(--ref-spacing-4)',
+                        fontWeight: '700',
+                        fontFamily: 'Montserrat, sans-serif',
+                        letterSpacing: '0.02em',
+                        lineHeight: 1.2,
+                        textShadow: '0 2px 8px rgba(0, 0, 0, 0.6)',
+                      }}
+                    >
+                      {activity.title}
+                    </h3>
+                    <p
+                      style={{
+                        color: '#E8E1D4',
+                        fontSize: 'var(--ref-font-size-lg)',
+                        fontFamily: 'Lato, sans-serif',
+                        lineHeight: 1.8,
+                        marginBottom: 'var(--ref-spacing-6)',
+                        opacity: isHovered ? 1 : 0.9,
+                        transition: 'opacity var(--ref-duration-slower)',
+                        textShadow: '0 1px 4px rgba(0, 0, 0, 0.3)',
+                      }}
+                    >
+                      {activity.description}
+                    </p>
+                    
+                    {/* Decorative link element */}
+                    <div style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      gap: 'var(--ref-spacing-3)',
+                      opacity: isHovered ? 1 : 0,
+                      transform: isHovered ? 'translateY(0)' : 'translateY(8px)',
+                      transition: 'all var(--ref-duration-slower) cubic-bezier(0.4, 0, 0.2, 1)',
+                    }}>
+                      <div style={{
+                        width: '24px',
+                        height: '1px',
+                        backgroundColor: '#C8A46A',
+                        opacity: 0.6,
+                      }} />
+                      <span
+                        style={{
+                          color: '#C8A46A',
+                          fontSize: 'var(--ref-font-size-sm)',
+                          fontWeight: '600',
+                          fontFamily: 'Montserrat, sans-serif',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.08em',
+                          textShadow: '0 0 15px rgba(200, 164, 106, 0.5)',
+                        }}
+                      >
+                        Learn More
+                        <span style={{ 
+                          transform: isHovered ? 'translateX(4px)' : 'translateX(0)', 
+                          transition: 'transform var(--ref-duration-slower) cubic-bezier(0.4, 0, 0.2, 1)',
+                          display: 'inline-block',
+                          marginLeft: 'var(--ref-spacing-2)'
+                        }}>→</span>
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -551,6 +754,20 @@ export default function ActivitiesPage() {
           </form>
         </div>
       </section>
+
+      {/* Add custom styles for animations */}
+      <style jsx>{`
+        @keyframes aurora {
+          0%, 100% { 
+            transform: translateX(-100%) skewX(-15deg); 
+            opacity: 0; 
+          }
+          50% { 
+            transform: translateX(100%) skewX(-15deg); 
+            opacity: 0.7; 
+          }
+        }
+      `}</style>
     </div>
   );
 }
