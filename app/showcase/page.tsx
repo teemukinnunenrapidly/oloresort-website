@@ -7,6 +7,11 @@ import Link from 'next/link';
 import HeroVideo from '../components/HeroVideo';
 import HeroVideoAlternative from '../components/HeroVideoAlternative';
 import HeroVideoWithBackground from '../components/HeroVideoWithBackground';
+import HeroVariant1 from '../components/HeroVariant1';
+import HeroVariant2 from '../components/HeroVariant2';
+import HeroVariant3 from '../components/HeroVariant3';
+import HeroVariant4 from '../components/HeroVariant4';
+import HeroVariant5 from '../components/HeroVariant5';
 import ExperienceMasonry from '../components/ExperienceMasonry';
 import PrivateSuiteTeaser from '../components/PrivateSuiteTeaser';
 import PrivateSuiteSection from '../components/PrivateSuiteSection';
@@ -28,26 +33,63 @@ interface ShowcaseSection {
 const showcaseSections: ShowcaseSection[] = [
   {
     id: 'hero-videos',
-    title: 'Hero Video Variants',
-    description: 'Different hero video component styles for the homepage',
+    title: 'Hero Sections - Complete Layouts',
+    description: 'Full hero sections combining content and video in different compositions',
+    variants: [
+      {
+        id: 'hero-variant-1',
+        name: 'V1: Classic Overlay',
+        component: <HeroVariant1 />,
+        notes: 'Full-screen video background with centered content overlay. Clean and bold.'
+      },
+      {
+        id: 'hero-variant-2',
+        name: 'V2: Split Screen',
+        component: <HeroVariant2 />,
+        notes: '50/50 split layout. Content left, video right on desktop. Mobile: overlay.'
+      },
+      {
+        id: 'hero-variant-3',
+        name: 'V3: Video Card',
+        component: <HeroVariant3 />,
+        notes: 'Content-focused with video in decorative card. Includes stats and features.'
+      },
+      {
+        id: 'hero-variant-4',
+        name: 'V4: Asymmetric Grid',
+        component: <HeroVariant4 />,
+        notes: 'Modern asymmetric layout with large video and overlapping content card.'
+      },
+      {
+        id: 'hero-variant-5',
+        name: 'V5: Minimal Centered',
+        component: <HeroVariant5 />,
+        notes: 'Minimalist approach with subtle background video and centered content.'
+      }
+    ]
+  },
+  {
+    id: 'hero-videos-original',
+    title: 'Hero Videos - Original Variants',
+    description: 'Original hero video background components (video-only, no content)',
     variants: [
       {
         id: 'hero-original',
         name: 'Original Hero Video',
         component: <HeroVideo />,
-        notes: 'Default hero video with Cloudflare Stream integration'
+        notes: 'Portrait video with side gradients. Background component only.'
       },
       {
         id: 'hero-alternative',
         name: 'Alternative Hero Video',
         component: <HeroVideoAlternative />,
-        notes: 'Alternative styling with different layout'
+        notes: '3D transformed video card at golden ratio position.'
       },
       {
         id: 'hero-background',
         name: 'Hero with Background',
         component: <HeroVideoWithBackground />,
-        notes: 'Hero video with background overlay effects'
+        notes: 'Smaller video window on desktop with background image.'
       }
     ]
   },
