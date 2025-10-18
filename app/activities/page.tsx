@@ -154,6 +154,7 @@ export default function ActivitiesPage() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'scroll',
         }}
       >
         {/* Glassmorphism overlay */}
@@ -240,7 +241,7 @@ export default function ActivitiesPage() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed'
+          backgroundAttachment: 'scroll'
         }}
       >
         <div className="relative">
@@ -269,7 +270,7 @@ export default function ActivitiesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--ref-spacing-12)]" style={{ marginTop: 'var(--ref-spacing-16)' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-[clamp(1.5rem, 3vw, var(--ref-spacing-12))]" style={{ marginTop: 'clamp(1.5rem, 3vw, var(--ref-spacing-16))' }}>
             {packages.map((pkg, index) => (
               <div key={index} className="package-card">
                 <div className="package-header">
@@ -394,34 +395,81 @@ export default function ActivitiesPage() {
       <section 
         className="gallery-section" 
         style={{ 
-          padding: 'var(--ref-spacing-20) var(--ref-spacing-8)', 
-          backgroundImage: `url("https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill,g_center/Northern_lights_Winter_1_ywd1kv")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          padding: 'var(--ref-spacing-24) var(--ref-spacing-8)', 
+          position: 'relative',
+          overflow: 'hidden',
+          width: '100vw',
+          marginLeft: 'calc(-50vw + 50%)',
+          background: 'rgba(255, 255, 255, 0.08)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
         }}
       >
-        <div className="max-w-[var(--sem-spacing-page-maxWidth)] mx-auto">
+        {/* Background decoration - subtle warm light */}
+        <div 
+          style={{
+            position: 'absolute',
+            top: '-20%',
+            right: '-10%',
+            width: '50%',
+            height: '50%',
+            backgroundImage: 'radial-gradient(circle, rgba(200, 164, 106, 0.05) 0%, transparent 70%)',
+            filter: 'blur(100px)',
+            pointerEvents: 'none',
+            zIndex: 0
+          }}
+        />
+        
+        {/* Additional subtle pattern - inspired by nature */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '-30%',
+            left: '-15%',
+            width: '60%',
+            height: '60%',
+            backgroundImage: 'radial-gradient(ellipse at center, rgba(232, 225, 212, 0.03) 0%, transparent 60%)',
+            filter: 'blur(120px)',
+            pointerEvents: 'none',
+            zIndex: 0
+          }}
+        />
+
+        <div className="max-w-[var(--sem-spacing-page-maxWidth)] mx-auto" style={{ position: 'relative', zIndex: 2 }}>
           <div 
-            className="text-center glassmorphism-header" 
+            className="text-center" 
             style={{ 
               marginBottom: 'var(--ref-spacing-16)',
-              background: 'rgba(255, 255, 255, 0.08)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: 'var(--ref-radius-3xl)',
-              padding: 'var(--ref-spacing-12) var(--ref-spacing-8)',
-              margin: '0 auto var(--ref-spacing-16) auto',
-              maxWidth: '800px'
+              padding: '0 var(--ref-spacing-8)'
             }}
           >
+            {/* Decorative elements */}
+            <div style={{
+              position: 'absolute',
+              left: '50%',
+              top: '-20px',
+              transform: 'translateX(-50%)',
+              display: 'flex',
+              gap: 'var(--ref-spacing-4)',
+              alignItems: 'center',
+              opacity: 0.4,
+            }}>
+              <div style={{ width: '40px', height: '1px', backgroundColor: '#C8A46A' }} />
+              <div style={{ width: '6px', height: '6px', backgroundColor: '#C8A46A', borderRadius: '50%' }} />
+              <div style={{ width: '40px', height: '1px', backgroundColor: '#C8A46A' }} />
+            </div>
+
             <h2
               style={{
                 fontSize: 'clamp(2rem, 4vw, 3rem)',
                 color: 'var(--sem-color-primary-base)',
                 marginBottom: 'var(--ref-spacing-6)',
                 fontWeight: 'var(--ref-font-weight-bold)',
+                textShadow: '2px 2px 16px rgba(0, 0, 0, 0.5)',
               }}
             >
               Our Activities in Pictures
@@ -433,13 +481,14 @@ export default function ActivitiesPage() {
                 opacity: '0.9',
                 maxWidth: '600px',
                 margin: '0 auto',
+                textShadow: '1px 1px 4px rgba(0, 0, 0, 0.6)',
               }}
             >
               See what Levi has to offer
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--ref-spacing-8)]" style={{ marginTop: 'var(--ref-spacing-16)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[clamp(1rem, 2vw, var(--ref-spacing-8))]" style={{ marginTop: 'clamp(1.5rem, 3vw, var(--ref-spacing-16))' }}>
             {galleryActivities.map((activity, index) => {
               const [isHovered, setIsHovered] = React.useState(false);
               
@@ -629,7 +678,7 @@ export default function ActivitiesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--ref-spacing-8)]" style={{ marginTop: 'var(--ref-spacing-16)' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[clamp(1rem, 2vw, var(--ref-spacing-8))]" style={{ marginTop: 'clamp(1.5rem, 3vw, var(--ref-spacing-16))' }}>
             {individualActivities.map((activity, index) => (
               <div key={index} className="activity-item">
                 <div

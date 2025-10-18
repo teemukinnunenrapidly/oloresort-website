@@ -1,34 +1,9 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 
-interface GalleryImage {
-  publicId: string;
-  alt: string;
-  caption: string;
-}
-
 const LoungeSaunaSection = () => {
-  // Replace these publicIds with your actual Cloudinary image IDs
-  const mainImage = {
-    publicId: "oloresort/lounge-main",
-    alt: "Main lounge area with fireplace",
-    title: "Experience Nordic Wellness",
-    description: "A perfect blend of traditional Finnish sauna culture and modern comfort"
-  };
-
-  const galleryImages: GalleryImage[] = [
-    { publicId: "oloresort/sauna-traditional", alt: "Traditional Finnish sauna", caption: "Finnish Sauna" },
-    { publicId: "oloresort/jacuzzi-outdoor", alt: "Outdoor jacuzzi", caption: "Jacuzzi" },
-    { publicId: "oloresort/fireplace-lounge", alt: "Cozy fireplace lounge", caption: "Fireplace Lounge" },
-    { publicId: "oloresort/terrace-view", alt: "Terrace with nature view", caption: "Terrace View" },
-    { publicId: "oloresort/dining-area", alt: "Spacious dining area", caption: "Dining Area" },
-    { publicId: "oloresort/campfire", alt: "Traditional campfire", caption: "Campfire" },
-    { publicId: "oloresort/spa-area", alt: "Luxury spa area", caption: "Spa Area" },
-    { publicId: "oloresort/relaxation-zone", alt: "Relaxation zone", caption: "Relaxation Zone" }
-  ];
 
   const equipmentItems = [
     { icon: "🍽", name: "Dining Area", detail: "Spacious dining for groups with panoramic views" },
@@ -99,166 +74,19 @@ const LoungeSaunaSection = () => {
         </p>
       </div>
 
-      {/* Main Gallery */}
-      <div style={{
-        maxWidth: '1400px',
-        margin: '0 auto 4rem',
-        position: 'relative'
-      }}>
-        <div style={{
-          position: 'relative',
-          height: '600px',
-          overflow: 'hidden',
-          boxShadow: 'var(--comp-lounge-sauna-main-shadow)'
-        }}>
-          {/* Placeholder for main image */}
-          <div style={{
-            width: '100%',
-            height: '100%',
-            background: 'linear-gradient(135deg, #bd984b, #d4b570)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#ffffff',
-            fontSize: '2rem',
-            fontWeight: '600',
-            textAlign: 'center',
-            padding: '2rem'
-          }}>
-            <div>
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🏠</div>
-              Main Lounge Area
-              <div style={{ fontSize: '0.875rem', opacity: 0.8, marginTop: '0.5rem' }}>
-                Replace with Cloudinary image
-              </div>
-            </div>
-          </div>
-          
-          {/* Overlay Content */}
-          <div style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            padding: '4rem',
-            background: 'linear-gradient(transparent, rgba(30, 24, 24, 0.9))',
-            color: '#ffffff'
-          }}>
-            <h3 style={{
-              fontFamily: 'var(--comp-lounge-sauna-overlay-title-typography-family)',
-              fontWeight: 'var(--comp-lounge-sauna-overlay-title-typography-weight)',
-              fontSize: 'var(--comp-lounge-sauna-overlay-title-typography-size)',
-              marginBottom: 'var(--ref-spacing-4)'
-            }}>
-              {mainImage.title}
-            </h3>
-            <p style={{
-              color: 'rgba(255, 255, 255, 0.9)',
-              lineHeight: 'var(--ref-line-height-normal)'
-            }}>
-              {mainImage.description}
-            </p>
-          </div>
-        </div>
-
-        {/* Thumbnail Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '1px',
-          marginTop: '1px'
-        }}>
-          {galleryImages.map((image, index) => (
-            <div 
-              key={index}
-              className="gallery-thumb"
-              style={{
-                aspectRatio: '4/3',
-                overflow: 'hidden',
-                position: 'relative',
-                cursor: 'pointer'
-              }}
-            >
-              {/* Placeholder for thumbnail images */}
-              <div style={{
-                width: '100%',
-                height: '100%',
-                background: `linear-gradient(135deg, 
-                  ${index === 0 ? '#1e3a8a' : 
-                    index === 1 ? '#059669' : 
-                    index === 2 ? '#dc2626' : 
-                    index === 3 ? '#7c3aed' : 
-                    index === 4 ? '#ea580c' : 
-                    index === 5 ? '#0891b2' : 
-                    index === 6 ? '#be185d' : '#6b7280'}, 
-                  ${index === 0 ? '#3b82f6' : 
-                    index === 1 ? '#10b981' : 
-                    index === 2 ? '#ef4444' : 
-                    index === 3 ? '#a855f7' : 
-                    index === 4 ? '#f97316' : 
-                    index === 5 ? '#06b6d4' : 
-                    index === 6 ? '#ec4899' : '#9ca3af'})`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#ffffff',
-                fontSize: '1.5rem',
-                fontWeight: '600',
-                textAlign: 'center',
-                padding: '1rem',
-                transition: 'transform 600ms cubic-bezier(0.4, 0, 0.2, 1)'
-              }}>
-                <div>
-                  <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>
-                    {index === 0 ? '🧖' : 
-                     index === 1 ? '💆' : 
-                     index === 2 ? '🔥' : 
-                     index === 3 ? '🏔' : 
-                     index === 4 ? '🍽' : 
-                     index === 5 ? '🏕' : 
-                     index === 6 ? '💆' : '🧘'}
-                  </div>
-                  {image.caption}
-                </div>
-              </div>
-              
-              {/* Thumbnail Label */}
-              <div 
-                className="thumb-label"
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  padding: 'var(--ref-spacing-4)',
-                  background: 'linear-gradient(transparent, rgba(30, 24, 24, 0.8))',
-                  color: '#ffffff',
-                  fontSize: 'var(--comp-lounge-sauna-thumb-label-typography-size)',
-                  textTransform: 'uppercase',
-                  letterSpacing: 'var(--ref-letter-spacing-wide)',
-                  opacity: 0,
-                  transition: 'opacity 400ms ease'
-                }}
-              >
-                {image.caption}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* Equipment Showcase */}
       <div style={{
         maxWidth: '1200px',
         margin: '4rem auto 0',
-        padding: '4rem',
+        padding: 'clamp(1.5rem, 4vw, 4rem)',
         background: '#ffffff',
         boxShadow: 'var(--comp-lounge-sauna-equipment-shadow)'
       }}>
-        <div style={{
+        <div className="equipment-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '3rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: 'clamp(1.5rem, 3vw, 3rem)'
         }}>
           {equipmentItems.map((item, index) => (
             <div 
@@ -326,24 +154,18 @@ const LoungeSaunaSection = () => {
       </div>
 
       <style jsx>{`
-        .gallery-thumb:hover {
-          transform: scale(1.05);
-        }
-
-        .gallery-thumb:hover .thumb-label {
-          opacity: 1 !important;
-        }
-
         .lounge-cta-button:hover {
           background: var(--comp-lounge-sauna-cta-button-hover-background) !important;
           transform: translateY(-2px);
         }
 
         @media (max-width: 768px) {
-          .gallery-thumb {
-            grid-template-columns: repeat(2, 1fr) !important;
+          .equipment-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
           }
-          
+        }
+
+        @media (max-width: 480px) {
           .equipment-grid {
             grid-template-columns: 1fr !important;
           }

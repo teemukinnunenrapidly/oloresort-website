@@ -7,46 +7,9 @@ import LoungeSaunaSection from '../components/LoungeSaunaSection';
 import { useState } from 'react';
 
 export default function AccommodationPage() {
-  const [selectedImage, setSelectedImage] = useState(0);
+  const [hoveredExperienceIndex, setHoveredExperienceIndex] = useState<number | null>(null);
 
-  const heroImages = [
-    "https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill,g_center/Suite_1_aq4lif",
-    "https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill,g_center/Olo_Restaurant_Levi_Reindeer_Winter_Scenes_1_xkx6oe",
-    "https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill,g_center/LRT_00170_su5dq6"
-  ];
 
-  const privatesuiteImages = [
-    {
-      url: "https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_800,h_600,c_fill,g_center/Suite_1_aq4lif",
-      caption: "Living Area",
-      description: "Spacious living space with panoramic glass walls"
-    },
-    {
-      url: "https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_800,h_600,c_fill,g_center/Suite_2_szw8ng",
-      caption: "Master Bedroom",
-      description: "King-size bed under the glass ceiling"
-    },
-    {
-      url: "https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_800,h_600,c_fill,g_center/Suite_3_bvvkgr",
-      caption: "Kitchen & Dining",
-      description: "Fully equipped modern kitchen"
-    },
-    {
-      url: "https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_800,h_600,c_fill,g_center/Suite_5_bstqiq",
-      caption: "Bathroom",
-      description: "Luxury spa bathroom with premium amenities"
-    },
-    {
-      url: "https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_800,h_600,c_fill,g_center/Suite_4_dpcjxi",
-      caption: "Glass Ceiling View",
-      description: "Perfect for northern lights viewing"
-    },
-    {
-      url: "https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_800,h_600,c_fill,g_center/Suite_6_hgjfat",
-      caption: "Evening Ambiance",
-      description: "Warm lighting creates a cozy atmosphere"
-    }
-  ];
 
   const amenityCategories = [
     {
@@ -164,16 +127,17 @@ export default function AccommodationPage() {
           position: 'relative'
         }}
       >
-        {/* Background Image Carousel */}
+        {/* Shared Background Image - extends to Private Suite Experience section */}
         <div
+          className="shared-background"
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundImage: `url("${heroImages[selectedImage]}")`,
+            backgroundImage: `url("https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill,g_north/Content_for_OloResort_Levi_from_lesmoonwalkers_mariuskaening_merry_amber17_mufhwu")`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center top',
             backgroundRepeat: 'no-repeat',
-            transition: 'opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1)',
+            backgroundAttachment: 'scroll',
             zIndex: 0
           }}
         />
@@ -186,12 +150,12 @@ export default function AccommodationPage() {
             background: 'rgba(0, 0, 0, 0.4)',
             backdropFilter: 'blur(8px)',
             WebkitBackdropFilter: 'blur(8px)',
-            zIndex: 1
+            zIndex: 2
           }}
         />
-        
+
         {/* Aurora effect */}
-        <div 
+        <div
           className="aurora-animation"
           style={{
             position: 'absolute',
@@ -201,15 +165,16 @@ export default function AccommodationPage() {
             height: '100%',
             background: 'linear-gradient(45deg, transparent, rgba(200, 164, 106, 0.1), transparent, rgba(189, 152, 75, 0.1), transparent)',
             animation: 'aurora 15s ease-in-out infinite',
-            zIndex: 2
+            zIndex: 3
           }}
         />
         
         {/* Content */}
-        <div className="relative z-10 text-center fade-in-up" style={{ 
-          maxWidth: '1000px', 
+        <div className="relative text-center fade-in-up" style={{
+          maxWidth: '1000px',
           padding: 'var(--ref-spacing-16) var(--ref-spacing-8)',
-          animation: 'fadeInUp 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both'
+          animation: 'fadeInUp 1.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both',
+          zIndex: 10
         }}>
           <p 
             style={{
@@ -225,20 +190,20 @@ export default function AccommodationPage() {
             LUXURY ACCOMMODATION IN LEVI
           </p>
           
-          <h1 
+                  <h1
             style={{
-              fontFamily: 'Montserrat, sans-serif',
-              fontSize: 'clamp(3rem, 6vw, 4.5rem)',
-              fontWeight: '700',
-              color: 'var(--ref-color-neutral-0)',
+                      fontFamily: 'Montserrat, sans-serif',
+                      fontSize: 'clamp(3rem, 6vw, 4.5rem)',
+                      fontWeight: '700',
+                      color: 'var(--sem-color-primary-base)',
               marginBottom: 'var(--ref-spacing-8)',
-              textShadow: '3px 3px 20px rgba(0, 0, 0, 0.5)',
-              lineHeight: 1.1,
-              letterSpacing: '-0.02em'
-            }}
-          >
-            Private Suite Experience
-          </h1>
+                      textShadow: '3px 3px 20px rgba(0, 0, 0, 0.5)',
+                      lineHeight: 1.1,
+                      letterSpacing: '-0.02em'
+                    }}
+                  >
+                    Experience Nordic Luxury
+                  </h1>
           
           <p 
             style={{
@@ -257,15 +222,15 @@ export default function AccommodationPage() {
             Experience northern lights from the comfort of your glass igloo suite.
           </p>
           
-          <div className="flex gap-[var(--ref-spacing-6)] justify-center flex-wrap">
-            <Link 
-              href="#suite" 
+          <div className="flex gap-[var(--ref-spacing-4)] sm:gap-[var(--ref-spacing-6)] justify-center flex-wrap">
+            <Link
+              href="#suite"
               style={{
                 background: 'var(--sem-color-primary-base)',
                 color: 'var(--ref-color-neutral-0)',
-                padding: '1.25rem 3rem',
+                padding: 'clamp(0.875rem, 2vw, 1.25rem) clamp(1.5rem, 4vw, 3rem)',
                 borderRadius: 'var(--ref-radius-full)',
-                fontSize: 'var(--ref-font-size-lg)',
+                fontSize: 'clamp(0.875rem, 2vw, var(--ref-font-size-lg))',
                 fontWeight: '600',
                 textDecoration: 'none',
                 display: 'inline-block',
@@ -276,17 +241,17 @@ export default function AccommodationPage() {
               }}
               className="btn-primary"
             >
-              Explore Suite
+              Private Suite
             </Link>
-            <Link 
-              href="#book" 
+            <Link
+              href="#lounge"
               style={{
                 background: 'transparent',
                 color: 'var(--ref-color-neutral-0)',
-                padding: '1.25rem 3rem',
+                padding: 'clamp(0.875rem, 2vw, 1.25rem) clamp(1.5rem, 4vw, 3rem)',
                 border: '2px solid var(--ref-color-neutral-0)',
                 borderRadius: 'var(--ref-radius-full)',
-                fontSize: 'var(--ref-font-size-lg)',
+                fontSize: 'clamp(0.875rem, 2vw, var(--ref-font-size-lg))',
                 fontWeight: '500',
                 textDecoration: 'none',
                 display: 'inline-block',
@@ -296,353 +261,654 @@ export default function AccommodationPage() {
               }}
               className="btn-secondary"
             >
-              Check Availability
+              Lounge & Sauna
             </Link>
           </div>
         </div>
+      </section>
+
+
+      {/* Unforgettable Experiences Section - Full Width */}
+      <section style={{ 
+        padding: '0',
+        position: 'relative',
+        overflow: 'hidden',
+        width: '100vw',
+        marginLeft: 'calc(-50vw + 50%)',
+        background: 'transparent'
+      }}>
+        {/* Dark overlay filter */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+            pointerEvents: 'none',
+            zIndex: 1
+          }}
+        />
         
-        {/* Image indicators */}
+        {/* Background decoration - subtle warm light */}
         <div 
           style={{
             position: 'absolute',
-            bottom: '3rem',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            gap: 'var(--ref-spacing-3)',
-            zIndex: 10
+            top: '-20%',
+            right: '-10%',
+            width: '50%',
+            height: '50%',
+            backgroundImage: 'radial-gradient(circle, rgba(200, 164, 106, 0.05) 0%, transparent 70%)',
+            filter: 'blur(100px)',
+            pointerEvents: 'none'
           }}
-        >
-          {heroImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setSelectedImage(index)}
-              style={{
-                width: '60px',
-                height: '3px',
-                background: selectedImage === index 
-                  ? 'var(--sem-color-primary-base)' 
-                  : 'rgba(255, 255, 255, 0.3)',
-                border: 'none',
-                borderRadius: 'var(--ref-radius-full)',
-                cursor: 'pointer',
-                transition: 'all 0.4s ease',
-                transform: selectedImage === index ? 'scaleX(1.2)' : 'scaleX(1)'
-              }}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* Private Suite Showcase - Main Section */}
-      <section 
-        id="suite"
-        style={{ 
-          padding: 'var(--ref-spacing-32) var(--ref-spacing-8)',
-          background: 'var(--ref-color-neutral-0)',
-          position: 'relative'
-        }}
-      >
-        <div className="container max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div 
-            className="text-center" 
-            style={{ 
-              marginBottom: 'var(--ref-spacing-20)',
-              maxWidth: '900px',
-              margin: '0 auto var(--ref-spacing-20)'
-            }}
-          >
+        />
+        
+        {/* Additional subtle pattern - inspired by nature */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '-30%',
+            left: '-15%',
+            width: '60%',
+            height: '60%',
+            backgroundImage: 'radial-gradient(ellipse at center, rgba(232, 225, 212, 0.03) 0%, transparent 60%)',
+            filter: 'blur(120px)',
+            pointerEvents: 'none'
+          }}
+        />
+        
+        <div className="relative" style={{ zIndex: 2, width: '100%' }}>
+          <div className="text-center" style={{ marginBottom: 'var(--ref-spacing-24)', marginTop: 'var(--ref-spacing-20)', position: 'relative', padding: '0 var(--ref-spacing-8)' }}>
+            {/* Decorative elements */}
+            <div style={{
+              position: 'absolute',
+              left: '50%',
+              top: '-20px',
+              transform: 'translateX(-50%)',
+              display: 'flex',
+              gap: 'var(--ref-spacing-4)',
+              alignItems: 'center',
+              opacity: 0.4,
+            }}>
+              <div style={{ width: '40px', height: '1px', backgroundColor: '#C8A46A' }} />
+              <div style={{ width: '6px', height: '6px', backgroundColor: '#C8A46A', borderRadius: '50%' }} />
+              <div style={{ width: '40px', height: '1px', backgroundColor: '#C8A46A' }} />
+            </div>
+            
+            <div style={{ position: 'relative', display: 'inline-block' }}>
             <h2 
               style={{
-                fontFamily: 'Montserrat, sans-serif',
-                fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
-                color: '#1E1E1E',
-                marginBottom: 'var(--ref-spacing-8)',
-                fontWeight: '700',
-                letterSpacing: '-0.02em',
-                lineHeight: 1.2
-              }}
-            >
-              OloResort Private Suite
+                        fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+                color: 'var(--sem-color-primary-base)',
+                        marginBottom: 'var(--ref-spacing-8)',
+                        fontWeight: '700',
+                        fontFamily: 'Montserrat, sans-serif',
+                        letterSpacing: '0.02em',
+                        lineHeight: 1.1,
+                        position: 'relative',
+                        display: 'inline-block',
+                        textShadow: '2px 2px 16px rgba(0, 0, 0, 0.5)',
+                      }}
+                    >
+                      Private Suite Experience
             </h2>
+              {/* Decorative accent line */}
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '-12px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  width: '80px',
+                  height: '3px',
+                  backgroundImage: 'linear-gradient(90deg, transparent 0%, #C8A46A 50%, transparent 100%)',
+                  borderRadius: 'var(--ref-radius-full)',
+                }}
+              />
+            </div>
             <p 
               style={{
+                fontSize: 'var(--ref-font-size-xl)',
+                color: '#E8E1D4',
+                lineHeight: 'var(--comp-experienceSection-subtitle-typography-lineHeight)',
                 fontFamily: 'Lato, sans-serif',
-                fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
-                color: '#666666',
-                lineHeight: 1.8,
-                fontWeight: '400'
+                maxWidth: '800px',
+                margin: '0 auto',
+                opacity: 0.95,
+                marginTop: 'var(--ref-spacing-12)',
+                letterSpacing: '0.01em',
+                textShadow: '1px 1px 4px rgba(0, 0, 0, 0.6)',
               }}
             >
-              Our exclusive 65m² glass igloo suite combines Nordic minimalism with 
-              uncompromising comfort. Every detail has been carefully considered to 
-              create a sanctuary where luxury meets nature.
+              OloResort Private Suite, decorated with pleasant and natural materials, is in the heart of the resort, close to services and year-round activities. The apartments are in nature, so you can relax without worries in your peace. Thanks to the large glass surface and the stunning glass roof, you can admire the sunrise and the northern lights in the comfort of your bed.
             </p>
           </div>
-
-          {/* Image Gallery Grid */}
+          
+          {/* Masonry Grid - Full Width */}
           <div 
+            className="experience-masonry"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '2px',
-              marginBottom: 'var(--ref-spacing-20)',
-              borderRadius: 'var(--ref-radius-2xl)',
-              overflow: 'hidden',
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.1)'
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateRows: 'repeat(3, 280px)',
+              gap: 'clamp(0.75rem, 2vw, var(--ref-spacing-6))',
+              marginTop: 'clamp(1.5rem, 4vw, var(--ref-spacing-20))',
+              width: '100%',
+              padding: '0 clamp(1rem, 3vw, var(--ref-spacing-8))'
             }}
           >
-            {privatesuiteImages.map((image, index) => (
+            {[
+              {
+                imageUrl: `https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,c_fill,g_center/oloresorttalvi-1-1_pr2pqm`,
+                title: "Northern Lights from Your Bed",
+                description: "Watch the dancing northern lights from the warmth of your blanket through our panoramic glass ceiling.",
+                linkHref: "/accommodation",
+                linkText: "View accommodation",
+                gridClass: "col-span-2 row-span-2",
+                featured: true
+              },
+              {
+                imageUrl: `https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,c_fill,g_center/DSCF7716_vfh0cr`,
+                title: "Premium Luxury",
+                description: "Each suite is luxuriously furnished with all modern amenities.",
+                linkHref: "/accommodation",
+                linkText: "View suites",
+                gridClass: "col-span-2 row-span-1"
+              },
+              {
+                imageUrl: `https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,c_fill,g_center/oloresorttalvi-1-2_y2n4k7`,
+                title: "Heart of Nature",
+                description: "Peaceful location in the embrace of nature, yet close to Levi's services.",
+                linkHref: "/accommodation",
+                linkText: "Explore location",
+                gridClass: "col-span-1 row-span-1"
+              },
+              {
+                imageUrl: `https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,c_fill,g_center/Snowmobile_20tour_hkw7ii`,
+                title: "Unique Activities",
+                description: "Snowmobile safaris, husky rides and snowshoeing adventures.",
+                linkHref: "/activities",
+                linkText: "View activities",
+                gridClass: "col-span-1 row-span-1"
+              },
+              {
+                imageUrl: `https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,c_fill,g_center/oloresorttalvi24-25-1-9_rifzwq`,
+                title: "Local Gourmet",
+                description: "Enjoy delicious breakfast and dinner combining local ingredients.",
+                linkHref: "/accommodation",
+                linkText: "Learn more",
+                gridClass: "col-span-2 row-span-1"
+              },
+              {
+                imageUrl: `https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,c_fill,g_center/AdobePhotoshopExpress_2025-03-07_18-16-49-0500_xds4sh`,
+                title: "Finnish Sauna",
+                description: "Relax in a traditional Finnish sauna in the peace of nature.",
+                linkHref: "/accommodation",
+                linkText: "Discover amenities",
+                gridClass: "col-span-2 row-span-1"
+              }
+            ].map((experience, index) => {
+              const isHovered = hoveredExperienceIndex === index;
+              
+              return (
               <div 
                 key={index}
-                className="suite-gallery-item"
+                  className={`experience-item ${experience.gridClass}`}
                 style={{
-                  position: 'relative',
-                  aspectRatio: index === 0 ? '16/10' : '4/3',
-                  gridColumn: index === 0 ? 'span 2' : 'span 1',
-                  gridRow: index === 0 ? 'span 2' : 'span 1',
-                  overflow: 'hidden',
-                  cursor: 'pointer'
-                }}
-              >
-                <img 
-                  src={image.url}
-                  alt={image.caption}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    transition: 'transform 1s cubic-bezier(0.4, 0, 0.2, 1)'
-                  }}
-                />
-                <div 
-                  className="image-overlay"
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent)',
-                    opacity: 0,
-                    transition: 'opacity 0.4s ease',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'flex-end',
-                    padding: 'var(--ref-spacing-8)'
-                  }}
+                      position: 'relative',
+                      overflow: 'hidden',
+                      borderRadius: experience.featured ? 'var(--ref-radius-3xl)' : 'var(--ref-radius-xl)',
+                      border: isHovered 
+                        ? '2px solid rgba(200, 164, 106, 0.6)' 
+                        : '1px solid rgba(200, 164, 106, 0.35)',
+                      cursor: 'pointer',
+                      transition: 'all var(--ref-duration-slower) ease-in-out',
+                      transform: isHovered ? 'scale(1.02)' : 'scale(1)',
+                      boxShadow: isHovered 
+                        ? '0 20px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(200, 164, 106, 0.4), inset 0 0 30px rgba(200, 164, 106, 0.15)' 
+                        : experience.featured 
+                          ? '0 10px 30px rgba(0, 0, 0, 0.4), 0 0 30px rgba(200, 164, 106, 0.25), inset 0 0 20px rgba(200, 164, 106, 0.08)'
+                          : '0 5px 20px rgba(0, 0, 0, 0.3), 0 0 25px rgba(200, 164, 106, 0.2), inset 0 0 15px rgba(200, 164, 106, 0.05)',
+                      background: 'linear-gradient(135deg, rgba(200, 164, 106, 0.06) 0%, transparent 60%)',
+                    }}
+                  onMouseEnter={() => setHoveredExperienceIndex(index)}
+                  onMouseLeave={() => setHoveredExperienceIndex(null)}
                 >
-                  <h4 
+                  {/* Background Image */}
+                  <img
+                    src={experience.imageUrl}
+                    alt={experience.title}
                     style={{
-                      color: 'var(--ref-color-neutral-0)',
-                      fontSize: 'var(--ref-font-size-xl)',
-                      fontWeight: '600',
-                      marginBottom: 'var(--ref-spacing-2)'
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform var(--ref-duration-slower) ease-in-out',
+                      transform: isHovered ? 'scale(1.1)' : 'scale(1)',
                     }}
-                  >
-                    {image.caption}
-                  </h4>
-                  <p 
+                  />
+                  
+                  {/* Gradient Overlay */}
+                  <div 
                     style={{
-                      color: 'rgba(255, 255, 255, 0.8)',
-                      fontSize: 'var(--ref-font-size-base)'
+                      position: 'absolute',
+                      inset: 0,
+                      backgroundImage: experience.featured 
+                        ? `linear-gradient(to top, 
+                            rgba(30, 30, 30, 0.95) 0%, 
+                            rgba(30, 30, 30, 0.7) 30%,
+                            rgba(30, 30, 30, 0.4) 50%, 
+                            rgba(30, 30, 30, 0.1) 80%, 
+                            transparent 100%),
+                          linear-gradient(135deg, 
+                            rgba(200, 164, 106, 0.05) 0%, 
+                            transparent 40%)`
+                        : `linear-gradient(to top, 
+                            rgba(30, 30, 30, 0.85) 0%, 
+                            rgba(30, 30, 30, 0.5) 30%,
+                            rgba(30, 30, 30, 0.2) 50%, 
+                            rgba(30, 30, 30, 0.05) 70%, 
+                            transparent 100%)`,
+                      transition: 'opacity var(--ref-duration-slower)',
+                      opacity: isHovered ? 0.9 : 1,
                     }}
-                  >
-                    {image.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Amenities Grid */}
-          <div 
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: 'var(--ref-spacing-12)',
-              marginBottom: 'var(--ref-spacing-20)'
-            }}
-          >
-            {amenityCategories.map((category, index) => (
-              <div 
-                key={index}
-                style={{
-                  background: '#FAFAFA',
-                  borderRadius: 'var(--ref-radius-2xl)',
-                  padding: 'var(--ref-spacing-12)',
-                  border: '1px solid #E8E1D4',
-                  transition: 'all 0.4s ease'
-                }}
-                className="amenity-card"
-              >
-                <div 
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    marginBottom: 'var(--ref-spacing-8)',
-                    gap: 'var(--ref-spacing-4)'
-                  }}
-                >
-                  <span 
-                    style={{
-                      fontSize: '2.5rem',
-                      display: 'inline-block'
-                    }}
-                  >
-                    {category.icon}
-                  </span>
-                  <h3 
-                    style={{
-                      fontFamily: 'Montserrat, sans-serif',
-                      fontSize: 'var(--ref-font-size-2xl)',
-                      color: '#1E1E1E',
-                      fontWeight: '600'
-                    }}
-                  >
-                    {category.title}
-                  </h3>
-                </div>
-                <ul 
-                  style={{
-                    listStyle: 'none',
-                    padding: 0,
-                    margin: 0
-                  }}
-                >
-                  {category.items.map((item, itemIndex) => (
-                    <li 
-                      key={itemIndex}
+                  />
+                  
+                  
+                  {/* Featured badge */}
+                  {experience.featured && (
+                    <div 
                       style={{
-                        padding: 'var(--ref-spacing-3) 0',
-                        borderBottom: itemIndex < category.items.length - 1 
-                          ? '1px solid rgba(200, 164, 106, 0.1)' 
-                          : 'none',
-                        color: '#666666',
-                        fontSize: 'var(--ref-font-size-base)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 'var(--ref-spacing-3)'
+                        position: 'absolute',
+                        top: 'var(--ref-spacing-8)',
+                        right: 'var(--ref-spacing-8)',
+                        background: 'linear-gradient(135deg, #C8A46A 0%, #E5C882 50%, #C8A46A 100%)',
+                        backdropFilter: 'blur(12px)',
+                        WebkitBackdropFilter: 'blur(12px)',
+                        padding: 'var(--ref-spacing-3) var(--ref-spacing-6)',
+                        borderRadius: 'var(--ref-radius-full)',
+                        boxShadow: '0 4px 20px rgba(200, 164, 106, 0.5), inset 0 1px 3px rgba(255, 255, 255, 0.4)',
+                        border: '1px solid rgba(255, 255, 255, 0.3)',
+                        transform: isHovered ? 'scale(1.1)' : 'scale(1)',
+                        transition: 'transform var(--ref-duration-base)',
                       }}
                     >
                       <span 
                         style={{
-                          color: 'var(--sem-color-primary-base)',
-                          fontSize: '0.8rem'
+                          color: '#1E1E1E',
+                          fontSize: 'var(--ref-font-size-xs)',
+                          fontWeight: '700',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.08em',
+                          fontFamily: 'Montserrat, sans-serif',
+                          textShadow: '0 1px 2px rgba(255, 255, 255, 0.3)'
                         }}
                       >
-                        ◆
+                        Must Experience
                       </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
+        </div>
 
-          {/* Unique Experiences */}
-          <div 
-            style={{
-              background: 'linear-gradient(135deg, #1E1E1E, #2A2A2A)',
-              borderRadius: 'var(--ref-radius-3xl)',
-              padding: 'var(--ref-spacing-20)',
-              color: 'var(--ref-color-neutral-0)',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-          >
+      </section>
+
+      {/* Why Choose OloResort Section */}
+      <section 
+        id="why-choose"
+        style={{
+          padding: 'var(--ref-spacing-32) var(--ref-spacing-8)',
+          position: 'relative',
+          overflow: 'hidden',
+          background: 'transparent'
+        }}
+      >
+        {/* Dark overlay filter */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            pointerEvents: 'none',
+            zIndex: 1
+          }}
+        />
+        
+        <div className="container max-w-7xl mx-auto" style={{ position: 'relative', zIndex: 2 }}>
+          {/* Section Header with Glassmorphism */}
+          <div className="text-center" style={{ marginBottom: 'var(--ref-spacing-24)' }}>
             <div 
               style={{
-                position: 'absolute',
-                top: '-50%',
-                right: '-10%',
-                width: '60%',
-                height: '200%',
-                background: 'radial-gradient(circle, rgba(200, 164, 106, 0.1), transparent)',
-                pointerEvents: 'none'
+                display: 'inline-block',
+                padding: 'var(--ref-spacing-12) var(--ref-spacing-16)',
+                background: 'rgba(255, 255, 255, 0.08)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: 'var(--ref-radius-2xl)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
               }}
-            />
-            
-            <div className="text-center" style={{ marginBottom: 'var(--ref-spacing-16)' }}>
+            >
+              <h2 
+                style={{
+                  fontFamily: 'Montserrat, sans-serif',
+                  fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+                  color: 'var(--sem-color-primary-base)',
+                  marginBottom: '0',
+                  fontWeight: '700',
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.2,
+                  textShadow: '2px 2px 16px rgba(0, 0, 0, 0.5)'
+                }}
+              >
+                Why Choose OloResort Glass Igloos?
+              </h2>
+            </div>
+          </div>
+
+          {/* Benefits Grid */}
+          <div 
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))',
+              gap: 'var(--ref-spacing-16)',
+              alignItems: 'start'
+            }}
+          >
+            {/* Unique Experience */}
+            <div 
+              style={{
+                background: 'linear-gradient(135deg, rgba(200, 164, 106, 0.05) 0%, transparent 60%)',
+                border: '1px solid rgba(200, 164, 106, 0.2)',
+                borderRadius: 'var(--ref-radius-2xl)',
+                  padding: 'var(--ref-spacing-12)',
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                position: 'relative',
+                overflow: 'hidden'
+                }}
+              className="benefit-card"
+              >
+              {/* Decorative element */}
+                <div 
+                  style={{
+                  position: 'absolute',
+                  top: '-20px',
+                  right: '-20px',
+                    width: '80px',
+                    height: '80px',
+                  background: 'radial-gradient(circle, rgba(200, 164, 106, 0.1) 0%, transparent 70%)',
+                    borderRadius: '50%',
+                  pointerEvents: 'none'
+                }}
+              />
+              
               <h3 
                 style={{
                   fontFamily: 'Montserrat, sans-serif',
-                  fontSize: 'clamp(2rem, 4vw, 2.5rem)',
+                  fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                  color: 'var(--sem-color-primary-base)',
                   marginBottom: 'var(--ref-spacing-6)',
-                  fontWeight: '600'
+                  fontWeight: '600',
+                  letterSpacing: '-0.01em'
                 }}
               >
-                Exclusive Suite Experiences
+                A Unique Experience
               </h3>
+              
               <p 
                 style={{
-                  fontSize: 'var(--ref-font-size-lg)',
-                  opacity: 0.9,
-                  maxWidth: '700px',
-                  margin: '0 auto'
+                  fontFamily: 'Lato, sans-serif',
+                  fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+                  color: '#E8E1D4',
+                  lineHeight: 1.7,
+                  fontWeight: '400',
+                  opacity: 0.95
                 }}
               >
-                Elevate your stay with our curated experiences designed exclusively for our suite guests
+                Discover the magic of Lapland from the comfort of your accommodation. 
+                Efficiently witness the Northern Lights, starry skies, and enchanting sunsets.
               </p>
-            </div>
-            
+                </div>
+
+            {/* Peaceful Location */}
             <div 
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                gap: 'var(--ref-spacing-8)',
+                background: 'linear-gradient(135deg, rgba(200, 164, 106, 0.05) 0%, transparent 60%)',
+                border: '1px solid rgba(200, 164, 106, 0.2)',
+                borderRadius: 'var(--ref-radius-2xl)',
+                padding: 'var(--ref-spacing-12)',
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                 position: 'relative',
-                zIndex: 1
+                overflow: 'hidden'
               }}
+              className="benefit-card"
             >
-              {experiences.map((exp, index) => (
-                <div 
-                  key={index}
+              {/* Decorative element */}
+              <div 
+                style={{
+                  position: 'absolute',
+                  top: '-20px',
+                  right: '-20px',
+                  width: '80px',
+                  height: '80px',
+                  background: 'radial-gradient(circle, rgba(200, 164, 106, 0.1) 0%, transparent 70%)',
+                  borderRadius: '50%',
+                  pointerEvents: 'none'
+                }}
+              />
+              
+                <h3 
                   style={{
-                    textAlign: 'center',
-                    padding: 'var(--ref-spacing-8)',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    borderRadius: 'var(--ref-radius-2xl)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(200, 164, 106, 0.2)',
-                    transition: 'all 0.4s ease'
-                  }}
-                  className="experience-card"
-                >
-                  <div 
-                    style={{
-                      fontSize: '3rem',
-                      marginBottom: 'var(--ref-spacing-4)'
-                    }}
-                  >
-                    {exp.icon}
-                  </div>
-                  <h4 
-                    style={{
-                      fontSize: 'var(--ref-font-size-xl)',
-                      marginBottom: 'var(--ref-spacing-4)',
-                      color: 'var(--sem-color-primary-base)'
-                    }}
-                  >
-                    {exp.title}
-                  </h4>
-                  <p 
-                    style={{
-                      fontSize: 'var(--ref-font-size-base)',
-                      opacity: 0.8,
-                      lineHeight: 1.6
-                    }}
-                  >
-                    {exp.description}
-                  </p>
-                </div>
-              ))}
+                  fontFamily: 'Montserrat, sans-serif',
+                  fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                    color: 'var(--sem-color-primary-base)',
+                  marginBottom: 'var(--ref-spacing-6)',
+                  fontWeight: '600',
+                  letterSpacing: '-0.01em'
+                }}
+              >
+                Peaceful Location
+                </h3>
+              
+                <p 
+                  style={{
+                  fontFamily: 'Lato, sans-serif',
+                  fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+                  color: '#E8E1D4',
+                  lineHeight: 1.7,
+                  fontWeight: '400',
+                  opacity: 0.95
+                }}
+              >
+                OloResort offers serene accommodations in the heart of nature, yet just a 
+                short distance from Levi's activities and amenities.
+                </p>
+              </div>
+
+            {/* Luxury and Comfort */}
+            <div 
+              style={{
+                background: 'linear-gradient(135deg, rgba(200, 164, 106, 0.05) 0%, transparent 60%)',
+                border: '1px solid rgba(200, 164, 106, 0.2)',
+                borderRadius: 'var(--ref-radius-2xl)',
+                padding: 'var(--ref-spacing-12)',
+                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                position: 'relative',
+                overflow: 'hidden'
+              }}
+              className="benefit-card"
+            >
+              {/* Decorative element */}
+              <div 
+                style={{
+                  position: 'absolute',
+                  top: '-20px',
+                  right: '-20px',
+                  width: '80px',
+                  height: '80px',
+                  background: 'radial-gradient(circle, rgba(200, 164, 106, 0.1) 0%, transparent 70%)',
+                  borderRadius: '50%',
+                  pointerEvents: 'none'
+                }}
+              />
+              
+              <h3 
+                style={{
+                  fontFamily: 'Montserrat, sans-serif',
+                  fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+                  color: 'var(--sem-color-primary-base)',
+                  marginBottom: 'var(--ref-spacing-6)',
+                  fontWeight: '600',
+                  letterSpacing: '-0.01em'
+                }}
+              >
+                Luxury and Comfort
+              </h3>
+              
+              <p 
+                style={{
+                  fontFamily: 'Lato, sans-serif',
+                  fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+                  color: '#E8E1D4',
+                  lineHeight: 1.7,
+                  fontWeight: '400',
+                  opacity: 0.95
+                }}
+              >
+                All our accommodations are equipped with premium amenities, including private 
+                bathrooms and Wi-Fi, ensuring your stay is perfectly relaxing and worry-free.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Lounge & Sauna Experience Section */}
+      <section 
+        id="lounge-experience"
+        style={{ 
+          padding: 'var(--ref-spacing-24) var(--ref-spacing-8)',
+          position: 'relative',
+          overflow: 'hidden',
+          width: '100vw',
+          marginLeft: 'calc(-50vw + 50%)',
+          background: 'rgba(255, 255, 255, 0.08)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+        }}
+      >
+        {/* Background decoration - subtle warm light */}
+        <div 
+          style={{
+            position: 'absolute',
+            top: '-20%',
+            right: '-10%',
+            width: '50%',
+            height: '50%',
+            backgroundImage: 'radial-gradient(circle, rgba(200, 164, 106, 0.05) 0%, transparent 70%)',
+            filter: 'blur(100px)',
+            pointerEvents: 'none',
+            zIndex: 0
+          }}
+        />
+        
+        {/* Additional subtle pattern - inspired by nature */}
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '-30%',
+            left: '-15%',
+            width: '60%',
+            height: '60%',
+            backgroundImage: 'radial-gradient(ellipse at center, rgba(232, 225, 212, 0.03) 0%, transparent 60%)',
+            filter: 'blur(120px)',
+            pointerEvents: 'none',
+            zIndex: 0
+          }}
+        />
+        
+        <div className="relative" style={{ zIndex: 2, width: '100%' }}>
+          <div className="text-center" style={{ position: 'relative', padding: '0 var(--ref-spacing-8)' }}>
+            {/* Decorative elements */}
+            <div style={{
+              position: 'absolute',
+              left: '50%',
+              top: '-20px',
+              transform: 'translateX(-50%)',
+              display: 'flex',
+              gap: 'var(--ref-spacing-4)',
+              alignItems: 'center',
+              opacity: 0.4,
+            }}>
+              <div style={{ width: '40px', height: '1px', backgroundColor: '#C8A46A' }} />
+              <div style={{ width: '6px', height: '6px', backgroundColor: '#C8A46A', borderRadius: '50%' }} />
+              <div style={{ width: '40px', height: '1px', backgroundColor: '#C8A46A' }} />
+            </div>
+            
+            <div style={{ position: 'relative', display: 'inline-block' }}>
+            <h2 
+              style={{
+                  fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+                color: 'var(--sem-color-primary-base)',
+                  marginBottom: 'var(--ref-spacing-8)',
+                  fontWeight: '700',
+                  fontFamily: 'Montserrat, sans-serif',
+                  letterSpacing: '0.02em',
+                  lineHeight: 1.1,
+                  position: 'relative',
+                  display: 'inline-block',
+                  textShadow: '2px 2px 16px rgba(0, 0, 0, 0.5)',
+                }}
+              >
+                Lounge & Sauna
+            </h2>
+              {/* Decorative accent line */}
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '-12px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  width: '80px',
+                  height: '3px',
+                  backgroundImage: 'linear-gradient(90deg, transparent 0%, #C8A46A 50%, transparent 100%)',
+                  borderRadius: 'var(--ref-radius-full)',
+                }}
+              />
+            </div>
+            <p 
+              style={{
+                fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+                color: '#E8E1D4',
+                lineHeight: 1.8,
+                fontWeight: '400',
+                maxWidth: '800px',
+                margin: '0 auto',
+                opacity: 0.95,
+                marginTop: 'var(--ref-spacing-12)',
+                letterSpacing: '0.01em',
+                textShadow: '1px 1px 4px rgba(0, 0, 0, 0.6)',
+              }}
+            >
+              In addition to private suites, in OloResort you can enjoy the lounge area and Finnish sauna. 
+              Our lounge area and sauna have been designed to maintain the beautiful view to nature. 
+              Enjoy the sauna experience and continue your evening in the warmth of the fireplace in our comfy lounge area. Relax.
+            </p>
+          </div>
+          
+        </div>
+      </section>
+
+
       {/* Lounge & Sauna Section */}
-      <LoungeSaunaSection />
+      <div id="lounge">
+        <LoungeSaunaSection />
+      </div>
 
       {/* Booking Information Section */}
       <section 
@@ -653,79 +919,96 @@ export default function AccommodationPage() {
         }}
       >
         <div className="container max-w-7xl mx-auto">
-          <div 
-            style={{
+            <div 
+              style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 500px), 1fr))',
-              gap: 'var(--ref-spacing-16)',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))',
+              gap: 'clamp(1.5rem, 4vw, var(--ref-spacing-16))',
               alignItems: 'center'
             }}
           >
             {/* Pricing & Availability */}
             <div 
               style={{
-                background: 'linear-gradient(135deg, #FAFAFA, #F5F5F5)',
-                borderRadius: 'var(--ref-radius-3xl)',
+                background: 'rgba(30, 30, 30, 0.85)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                borderRadius: 'var(--ref-radius-2xl)',
                 padding: 'var(--ref-spacing-16)',
-                border: '1px solid rgba(200, 164, 106, 0.2)',
+                border: '1px solid rgba(200, 164, 106, 0.3)',
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)'
               }}
             >
+              {/* Subtle decorative element */}
               <div 
                 style={{
                   position: 'absolute',
-                  top: 0,
-                  right: 0,
-                  width: '200px',
-                  height: '200px',
-                  background: 'radial-gradient(circle, rgba(200, 164, 106, 0.1), transparent)',
-                  transform: 'translate(50%, -50%)'
+                  top: '-50%',
+                  right: '-20%',
+                  width: '300px',
+                  height: '300px',
+                  background: 'radial-gradient(circle, rgba(200, 164, 106, 0.08), transparent 70%)',
+                  pointerEvents: 'none'
                 }}
               />
               
               <h3 
                 style={{
                   fontFamily: 'Montserrat, sans-serif',
-                  fontSize: 'var(--ref-font-size-3xl)',
-                  color: '#1E1E1E',
-                  marginBottom: 'var(--ref-spacing-8)',
-                  fontWeight: '600'
+                  fontSize: 'clamp(1.75rem, 4vw, 2.25rem)',
+                  color: 'var(--sem-color-primary-base)',
+                  marginBottom: 'var(--ref-spacing-10)',
+                  fontWeight: '600',
+                  letterSpacing: '-0.01em',
+                  position: 'relative'
                 }}
               >
                 Rates & Booking
               </h3>
               
-              <div style={{ marginBottom: 'var(--ref-spacing-12)' }}>
+              <div style={{ 
+                marginBottom: 'var(--ref-spacing-10)',
+                paddingBottom: 'var(--ref-spacing-10)',
+                borderBottom: '1px solid rgba(200, 164, 106, 0.15)'
+              }}>
                 <p 
                   style={{
-                    fontSize: 'var(--ref-font-size-base)',
-                    color: '#666666',
-                    marginBottom: 'var(--ref-spacing-2)'
+                    fontSize: 'var(--ref-font-size-sm)',
+                    color: '#E8E1D4',
+                    marginBottom: 'var(--ref-spacing-3)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.1em',
+                    opacity: 0.8,
+                    fontFamily: 'Lato, sans-serif'
                   }}
                 >
                   Private Suite starting from
                 </p>
-                <div 
-                  style={{
-                    fontSize: 'clamp(2.5rem, 5vw, 3rem)',
+              <div 
+                style={{
+                    fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
                     color: 'var(--sem-color-primary-base)',
-                    fontWeight: '700',
-                    fontFamily: 'Montserrat, sans-serif'
+                    fontWeight: '300',
+                    fontFamily: 'Montserrat, sans-serif',
+                    letterSpacing: '-0.02em',
+                    lineHeight: 1
                   }}
                 >
                   €450
                   <span 
                     style={{
-                      fontSize: 'var(--ref-font-size-lg)',
-                      fontWeight: '400',
-                      color: '#666666',
-                      marginLeft: 'var(--ref-spacing-3)'
+                  fontSize: 'var(--ref-font-size-lg)', 
+                      fontWeight: '300',
+                      color: '#E8E1D4',
+                      marginLeft: 'var(--ref-spacing-4)',
+                      opacity: 0.7
                     }}
                   >
-                    per night
+                    / night
                   </span>
-                </div>
+              </div>
               </div>
               
               <ul 
@@ -736,61 +1019,96 @@ export default function AccommodationPage() {
                 }}
               >
                 <li style={{ 
-                  padding: 'var(--ref-spacing-4) 0',
-                  borderBottom: '1px solid rgba(200, 164, 106, 0.1)',
+                  padding: 'var(--ref-spacing-5) 0',
+                  borderBottom: '1px solid rgba(200, 164, 106, 0.08)',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 'var(--ref-spacing-3)'
+                  gap: 'var(--ref-spacing-4)',
+                  fontFamily: 'Lato, sans-serif',
+                  fontSize: 'var(--ref-font-size-base)',
+                  color: '#E8E1D4',
+                  lineHeight: 1.6
                 }}>
-                  <span style={{ color: 'var(--sem-color-primary-base)' }}>✓</span>
+                  <span style={{ 
+                    color: 'var(--sem-color-primary-base)', 
+                    fontSize: '1.25rem',
+                    fontWeight: '300'
+                  }}>✓</span>
                   Minimum stay 2 nights
                 </li>
                 <li style={{ 
-                  padding: 'var(--ref-spacing-4) 0',
-                  borderBottom: '1px solid rgba(200, 164, 106, 0.1)',
+                  padding: 'var(--ref-spacing-5) 0',
+                  borderBottom: '1px solid rgba(200, 164, 106, 0.08)',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 'var(--ref-spacing-3)'
+                  gap: 'var(--ref-spacing-4)',
+                  fontFamily: 'Lato, sans-serif',
+                  fontSize: 'var(--ref-font-size-base)',
+                  color: '#E8E1D4',
+                  lineHeight: 1.6
                 }}>
-                  <span style={{ color: 'var(--sem-color-primary-base)' }}>✓</span>
+                  <span style={{ 
+                    color: 'var(--sem-color-primary-base)', 
+                    fontSize: '1.25rem',
+                    fontWeight: '300'
+                  }}>✓</span>
                   Breakfast included
                 </li>
                 <li style={{ 
-                  padding: 'var(--ref-spacing-4) 0',
-                  borderBottom: '1px solid rgba(200, 164, 106, 0.1)',
+                  padding: 'var(--ref-spacing-5) 0',
+                  borderBottom: '1px solid rgba(200, 164, 106, 0.08)',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 'var(--ref-spacing-3)'
+                  gap: 'var(--ref-spacing-4)',
+                  fontFamily: 'Lato, sans-serif',
+                  fontSize: 'var(--ref-font-size-base)',
+                  color: '#E8E1D4',
+                  lineHeight: 1.6
                 }}>
-                  <span style={{ color: 'var(--sem-color-primary-base)' }}>✓</span>
+                  <span style={{ 
+                    color: 'var(--sem-color-primary-base)', 
+                    fontSize: '1.25rem',
+                    fontWeight: '300'
+                  }}>✓</span>
                   Airport transfers available
                 </li>
                 <li style={{ 
-                  padding: 'var(--ref-spacing-4) 0',
+                  padding: 'var(--ref-spacing-5) 0',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 'var(--ref-spacing-3)'
+                  gap: 'var(--ref-spacing-4)',
+                  fontFamily: 'Lato, sans-serif',
+                  fontSize: 'var(--ref-font-size-base)',
+                  color: '#E8E1D4',
+                  lineHeight: 1.6
                 }}>
-                  <span style={{ color: 'var(--sem-color-primary-base)' }}>✓</span>
+                  <span style={{ 
+                    color: 'var(--sem-color-primary-base)', 
+                    fontSize: '1.25rem',
+                    fontWeight: '300'
+                  }}>✓</span>
                   Free cancellation 7 days before
                 </li>
               </ul>
               
               <Link 
                 href="/contact"
-                style={{
-                  display: 'block',
-                  background: 'var(--sem-color-primary-base)',
-                  color: 'var(--ref-color-neutral-0)',
-                  padding: '1.25rem',
-                  borderRadius: 'var(--ref-radius-full)',
+                  style={{
+                    display: 'block',
+                  background: 'linear-gradient(135deg, var(--sem-color-primary-base) 0%, #E5C882 100%)',
+                  color: '#1E1E1E',
+                  padding: 'var(--ref-spacing-5) var(--ref-spacing-8)',
+                  borderRadius: 'var(--ref-radius-lg)',
                   textAlign: 'center',
-                  fontSize: 'var(--ref-font-size-lg)',
+                    fontSize: 'var(--ref-font-size-base)',
                   fontWeight: '600',
                   textDecoration: 'none',
-                  transition: 'all 0.4s ease',
+                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                   textTransform: 'uppercase',
-                  letterSpacing: '0.05em'
+                  letterSpacing: '0.08em',
+                  fontFamily: 'Montserrat, sans-serif',
+                  boxShadow: '0 4px 20px rgba(200, 164, 106, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)'
                 }}
                 className="btn-primary"
               >
@@ -798,75 +1116,31 @@ export default function AccommodationPage() {
               </Link>
             </div>
             
-            {/* Contact Information */}
-            <div>
-              <h3 
+            {/* Image Box */}
+            <div 
+              style={{
+                position: 'relative',
+                overflow: 'hidden',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: '#1E1E1E',
+                borderRadius: 'var(--ref-radius-2xl)',
+                border: '1px solid rgba(200, 164, 106, 0.3)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)'
+              }}
+            >
+              {/* Image */}
+              <img
+                src="https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_1200/oloresorttalvi-1-30-scaled_nytdcg"
+                alt="OloResort Lounge & Sauna"
                 style={{
-                  fontFamily: 'Montserrat, sans-serif',
-                  fontSize: 'var(--ref-font-size-3xl)',
-                  color: '#1E1E1E',
-                  marginBottom: 'var(--ref-spacing-8)',
-                  fontWeight: '600'
+                  width: '110%',
+                  height: '110%',
+                  objectFit: 'cover'
                 }}
-              >
-                Get in Touch
-              </h3>
-              
-              <div style={{ marginBottom: 'var(--ref-spacing-12)' }}>
-                <p 
-                  style={{
-                    fontSize: 'var(--ref-font-size-lg)',
-                    color: '#666666',
-                    lineHeight: 1.8,
-                    marginBottom: 'var(--ref-spacing-8)'
-                  }}
-                >
-                  Our dedicated team is here to help you plan the perfect Lapland escape. 
-                  Contact us for personalized recommendations and special arrangements.
-                </p>
-                
-                <div 
-                  style={{
-                    background: '#FAFAFA',
-                    borderLeft: '4px solid var(--sem-color-primary-base)',
-                    padding: 'var(--ref-spacing-8)',
-                    borderRadius: 'var(--ref-radius-lg)'
-                  }}
-                >
-                  <h4 
-                    style={{
-                      fontSize: 'var(--ref-font-size-xl)',
-                      color: '#1E1E1E',
-                      marginBottom: 'var(--ref-spacing-6)',
-                      fontWeight: '600'
-                    }}
-                  >
-                    OloResort Levi
-                  </h4>
-                  <p style={{ marginBottom: 'var(--ref-spacing-4)' }}>
-                    <strong>Address:</strong><br />
-                    Taalontie 46, 99130 Sirkka, Finland
-                  </p>
-                  <p style={{ marginBottom: 'var(--ref-spacing-4)' }}>
-                    <strong>Email:</strong>{' '}
-                    <a 
-                      href="mailto:levi@oloresort.fi"
-                      style={{ color: 'var(--sem-color-primary-base)', textDecoration: 'none' }}
-                    >
-                      levi@oloresort.fi
-                    </a>
-                  </p>
-                  <p>
-                    <strong>Phone:</strong>{' '}
-                    <a 
-                      href="tel:+358449014162"
-                      style={{ color: 'var(--sem-color-primary-base)', textDecoration: 'none' }}
-                    >
-                      +358 44 901 4162
-                    </a>
-                  </p>
-                </div>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -875,7 +1149,7 @@ export default function AccommodationPage() {
       {/* FAQ Section */}
       <section 
         style={{ 
-          padding: 'var(--ref-spacing-20) var(--ref-spacing-8)',
+        padding: 'var(--ref-spacing-20) var(--ref-spacing-8)',
           background: 'linear-gradient(to bottom, var(--ref-color-neutral-0), #FAFAFA)'
         }}
       >
@@ -977,8 +1251,18 @@ export default function AccommodationPage() {
         </div>
       </section>
 
+
       {/* Add custom styles */}
       <style jsx>{`
+        .shared-background {
+          position: fixed !important;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 200vh;
+          z-index: -1;
+        }
+
         @keyframes aurora {
           0%, 100% { 
             transform: translateX(-100%) skewX(-15deg); 
@@ -990,12 +1274,31 @@ export default function AccommodationPage() {
           }
         }
 
-        .suite-gallery-item:hover img {
-          transform: scale(1.05);
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
 
-        .suite-gallery-item:hover .image-overlay {
-          opacity: 1;
+        @keyframes fadeInUp {
+          from { 
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to { 
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideIn {
+          from { 
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to { 
+            opacity: 1;
+            transform: scale(1);
+          }
         }
 
         .amenity-card:hover {
@@ -1008,6 +1311,88 @@ export default function AccommodationPage() {
           background: rgba(255, 255, 255, 0.1);
           transform: translateY(-5px);
           border-color: var(--sem-color-primary-base);
+        }
+
+        .benefit-card:hover {
+          transform: translateY(-8px);
+          border-color: rgba(200, 164, 106, 0.4);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(200, 164, 106, 0.2);
+          background: linear-gradient(135deg, rgba(200, 164, 106, 0.08) 0%, transparent 60%);
+        }
+
+        .masonry-item:hover img {
+          transform: scale(1.08);
+        }
+
+        .masonry-item:hover .masonry-overlay {
+          opacity: 1;
+        }
+
+        .masonry-item:hover h3,
+        .masonry-item:hover p {
+          transform: translateY(0);
+        }
+
+        .masonry-item:hover .click-indicator {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .experience-masonry > div {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+
+        .experience-masonry > .col-span-2 {
+          grid-column: span 2;
+        }
+
+        .experience-masonry > .row-span-2 {
+          grid-row: span 2;
+        }
+
+        @media (max-width: 1024px) {
+          .experience-masonry {
+            grid-template-columns: repeat(2, 1fr) !important;
+            grid-template-rows: repeat(auto, 250px) !important;
+          }
+
+          .experience-masonry > .col-span-2 {
+            grid-column: span 2;
+          }
+
+          .experience-masonry > .row-span-2 {
+            grid-row: span 1;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .experience-masonry {
+            grid-template-columns: 1fr !important;
+            grid-template-rows: repeat(auto, 320px) !important;
+            gap: var(--ref-spacing-4) !important;
+          }
+
+          .experience-masonry > div {
+            grid-column: span 1 !important;
+            grid-row: span 1 !important;
+          }
+
+          /* Better mobile card heights */
+          .experience-item {
+            min-height: 320px !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .lightbox-nav {
+            width: 50px !important;
+            height: 50px !important;
+          }
+          
+          .masonry-item {
+            min-height: 250px;
+          }
         }
       `}</style>
     </div>

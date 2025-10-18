@@ -139,10 +139,10 @@ export default function Navigation() {
               justifyContent: 'center',
               position: 'absolute',
               left: '50%',
-              top: isScrolled ? '50%' : '-20px',
+              top: isScrolled ? '50%' : '-10px',
               transform: isScrolled 
-                ? 'translate(-50%, -50%) scale(0.75)' 
-                : 'translateX(-50%) scale(1)',
+                ? 'translate(-50%, -50%) scale(0.7)' 
+                : 'translateX(-50%) scale(0.85)',
               transformOrigin: 'center',
             }}
           >
@@ -151,9 +151,11 @@ export default function Navigation() {
               alt="OloResort"
               width={220}
               height={110}
+              className="logo-image"
               style={{
                 height: 'auto',
-                maxHeight: isScrolled ? '80px' : '110px',
+                maxHeight: isScrolled ? '70px' : '90px',
+                width: 'auto',
                 objectFit: 'contain',
                 transition: 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
                 filter: isScrolled ? 'brightness(1.1)' : 'brightness(1)',
@@ -259,16 +261,19 @@ export default function Navigation() {
           top: '64px',
           backgroundColor: 'rgba(24, 18, 18, 0.98)',
           backdropFilter: 'blur(10px)',
-          maxHeight: 'calc(100vh - 4rem)',
+          WebkitBackdropFilter: 'blur(10px)',
+          maxHeight: 'calc(100vh - 64px)',
+          overflowY: 'auto',
           boxShadow: isMobileMenuOpen ? 'var(--ref-shadow-lg)' : 'none',
           transition: 'all var(--ref-duration-slow)',
+          WebkitOverflowScrolling: 'touch',
         }}
       >
-        <nav style={{ padding: 'var(--ref-spacing-6) var(--ref-spacing-4)' }}>
+        <nav style={{ padding: 'var(--ref-spacing-6) var(--ref-spacing-4)', paddingBottom: 'var(--ref-spacing-12)' }}>
           <ul style={{ 
             display: 'flex', 
             flexDirection: 'column', 
-            gap: 'var(--ref-spacing-4)',
+            gap: 'var(--ref-spacing-2)',
             listStyle: 'none',
             margin: 0,
             padding: 0,

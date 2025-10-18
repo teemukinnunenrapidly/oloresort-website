@@ -9,16 +9,17 @@ export default function Home() {
       
       {/* Hero Section with Video */}
       <section 
-        className="relative flex items-center justify-center"
+        className="hero-section-main relative flex items-center justify-center"
         style={{
-          height: '100vh',
-          minHeight: '600px',
+          height: 'max(100vh, 600px)',
+          minHeight: '500px',
           overflow: 'visible',
           position: 'relative'
         }}
       >
         {/* Background image that continues to next section */}
         <div
+          className="hero-background"
           style={{
             position: 'absolute',
             inset: 0,
@@ -26,7 +27,7 @@ export default function Home() {
             backgroundSize: 'cover',
             backgroundPosition: 'center top',
             backgroundRepeat: 'no-repeat',
-            backgroundAttachment: 'fixed',
+            backgroundAttachment: 'scroll',
             pointerEvents: 'none',
             zIndex: 0
           }}
@@ -50,17 +51,17 @@ export default function Home() {
         <HeroVideoAlternative />
         
         {/* Main content - left side on desktop */}
-        <div className="relative z-40 text-center md:text-left fade-in-up md:absolute md:left-20 md:top-1/2 md:-translate-y-1/2 px-8 md:px-0" style={{ 
+        <div className="hero-content-main relative z-40 text-center md:text-left fade-in-up md:absolute md:left-20 md:top-1/2 md:-translate-y-1/2 px-6 md:px-0" style={{ 
           maxWidth: '600px', 
           animation: 'fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both',
         }}>
           <h1 
             style={{
               fontFamily: 'Montserrat, sans-serif',
-              fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+              fontSize: 'clamp(2rem, 6vw, 3.5rem)',
               fontWeight: '700',
               color: '#C8A46A',
-              marginBottom: 'var(--ref-spacing-6)',
+              marginBottom: 'clamp(1rem, 3vw, var(--ref-spacing-6))',
               textShadow: '2px 2px 16px rgba(0, 0, 0, 0.5)',
               letterSpacing: '-0.02em',
               lineHeight: 1.15,
@@ -71,9 +72,9 @@ export default function Home() {
           <p 
             style={{
               fontFamily: 'Lato, sans-serif',
-              fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+              fontSize: 'clamp(1rem, 2.5vw, 1.375rem)',
               color: '#E8E1D4',
-              marginBottom: 'var(--ref-spacing-16)',
+              marginBottom: 'clamp(1.5rem, 4vw, var(--ref-spacing-16))',
               fontWeight: '400',
               textShadow: '1px 1px 8px rgba(0, 0, 0, 0.6)',
               lineHeight: 1.65,
@@ -96,7 +97,7 @@ export default function Home() {
       <section 
         className="cta-pattern relative overflow-hidden text-center"
         style={{
-          padding: 'var(--ref-spacing-32) var(--ref-spacing-8)',
+          padding: 'clamp(2rem, 5vw, var(--ref-spacing-32)) var(--ref-spacing-8)',
           background: 'linear-gradient(135deg, var(--ref-color-brand-blue-500) 0%, var(--ref-color-brand-gold-500) 100%)',
         }}
       >

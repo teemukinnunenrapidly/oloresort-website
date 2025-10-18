@@ -835,3 +835,112 @@ aside a[href]:hover {
   padding-bottom: 150px;
   position: relative;
 }
+
+/* Mobile specific improvements */
+@media (max-width: 768px) {
+  /* Disable fixed backgrounds on mobile for better performance */
+  .hero-background,
+  .shared-background {
+    background-attachment: scroll !important;
+  }
+
+  /* Larger touch targets for better mobile UX */
+  .btn-primary,
+  .btn-secondary {
+    min-height: 48px;
+    min-width: 48px;
+    padding: clamp(0.875rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem) !important;
+  }
+
+  /* Better spacing for mobile */
+  .hero-section-main {
+    min-height: 500px !important;
+    height: max(80vh, 500px) !important;
+  }
+
+  /* Logo responsive size */
+  .logo-image {
+    max-height: 70px !important;
+  }
+
+  /* Footer better spacing */
+  .footer-grid {
+    gap: var(--ref-spacing-8) !important;
+  }
+
+  /* Mobile menu larger touch targets */
+  .mobile-nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Package cards better spacing */
+  .package-card {
+    margin-bottom: var(--ref-spacing-8);
+  }
+
+  /* Activity cards full width on mobile */
+  .activity-gallery-card {
+    min-height: 350px !important;
+  }
+
+  /* Better text readability on mobile */
+  h1 {
+    line-height: 1.2 !important;
+  }
+
+  h2 {
+    line-height: 1.3 !important;
+  }
+
+  p {
+    line-height: 1.6 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small devices */
+  .hero-section-main {
+    min-height: 450px !important;
+  }
+
+  /* Smaller padding on very small screens */
+  section {
+    padding-left: var(--ref-spacing-4) !important;
+    padding-right: var(--ref-spacing-4) !important;
+  }
+
+  /* Stack elements vertically */
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Footer single column */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .nav-link:hover::after,
+  .btn-primary:hover::before,
+  .nav-book-button:hover::before {
+    transform: none;
+  }
+
+  /* Larger click areas for touch */
+  .nav-link,
+  .mobile-nav-link {
+    padding: var(--ref-spacing-3) var(--ref-spacing-4);
+  }
+
+  /* Better tap feedback */
+  .btn-primary:active,
+  .btn-secondary:active {
+    transform: scale(0.97);
+    opacity: 0.9;
+  }
+}

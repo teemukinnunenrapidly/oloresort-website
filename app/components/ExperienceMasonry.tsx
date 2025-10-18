@@ -93,12 +93,12 @@ const ExperienceMasonry = ({
           inset: 0,
           backgroundImage: `url("https://res.cloudinary.com/dpdua7dgn/image/upload/f_auto,q_auto,w_1920,h_1080,c_fill,g_north/Content_for_OloResort_Levi_from_lesmoonwalkers_mariuskaening_merry_amber17_mufhwu")`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed',
-          pointerEvents: 'none',
-          zIndex: 0,
-          backgroundColor: '#1E1E1E' // Fallback color
+            backgroundPosition: 'center top',
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'scroll',
+            pointerEvents: 'none',
+            zIndex: 0,
+            backgroundColor: '#1E1E1E' // Fallback color
         }}
       />
       

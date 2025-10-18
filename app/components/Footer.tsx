@@ -71,7 +71,7 @@ export default function Footer() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-[var(--ref-spacing-12)] mb-[var(--ref-spacing-16)]">
+        <div className="footer-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[var(--ref-spacing-12)] mb-[var(--ref-spacing-16)]">
           {/* Contact Information */}
           <div>
             <h3 
