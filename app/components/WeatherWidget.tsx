@@ -132,9 +132,8 @@ export default function WeatherWidget() {
       style={{
         display: 'flex',
         alignItems: 'center',
-        gap: 'var(--ref-spacing-4)',
+        gap: 'var(--ref-spacing-3)',
         padding: 'var(--ref-spacing-1) var(--ref-spacing-4)',
-        minWidth: '220px',
       }}
       className="weather-widget"
     >
@@ -155,28 +154,34 @@ export default function WeatherWidget() {
         >
           {getWeatherIcon(weather.icon)}
         </div>
-        <div>
-          <div 
+        <div 
+          style={{
+            display: 'flex',
+            alignItems: 'baseline',
+            gap: 'var(--ref-spacing-2)',
+          }}
+        >
+          <span
             style={{
               fontSize: 'var(--ref-font-size-sm)',
               fontWeight: 'var(--ref-font-weight-semibold)',
               color: 'white',
               fontFamily: 'var(--ref-font-family-display)',
-              lineHeight: 1.2,
-            }}
-          >
-            {weather.temp}°C
-          </div>
-          <div 
-            style={{
-              fontSize: '10px',
-              color: 'rgba(255, 255, 255, 0.8)',
-              fontWeight: 'var(--ref-font-weight-medium)',
               lineHeight: 1,
             }}
           >
+            {weather.temp}°C
+          </span>
+          <span
+            style={{
+              fontSize: '11px',
+              color: 'rgba(255, 255, 255, 0.7)',
+              fontWeight: 'var(--ref-font-weight-medium)',
+              whiteSpace: 'nowrap',
+            }}
+          >
             Local temperature
-          </div>
+          </span>
         </div>
       </div>
 
@@ -184,7 +189,7 @@ export default function WeatherWidget() {
       <div 
         style={{
           width: '1px',
-          height: '20px',
+          height: '16px',
           background: 'rgba(255, 255, 255, 0.3)',
         }}
       />
@@ -206,28 +211,34 @@ export default function WeatherWidget() {
         >
           <Clock className="w-4 h-4" />
         </div>
-        <div>
-          <div 
+        <div 
+          style={{
+            display: 'flex',
+            alignItems: 'baseline',
+            gap: 'var(--ref-spacing-2)',
+          }}
+        >
+          <span
             style={{
               fontSize: 'var(--ref-font-size-sm)',
               fontWeight: 'var(--ref-font-weight-semibold)',
               color: 'white',
               fontFamily: 'var(--ref-font-family-display)',
-              lineHeight: 1.2,
-            }}
-          >
-            {localTime || '--:--'}
-          </div>
-          <div 
-            style={{
-              fontSize: '10px',
-              color: 'rgba(255, 255, 255, 0.8)',
-              fontWeight: 'var(--ref-font-weight-medium)',
               lineHeight: 1,
             }}
           >
+            {localTime || '--:--'}
+          </span>
+          <span
+            style={{
+              fontSize: '11px',
+              color: 'rgba(255, 255, 255, 0.7)',
+              fontWeight: 'var(--ref-font-weight-medium)',
+              whiteSpace: 'nowrap',
+            }}
+          >
             Local time
-          </div>
+          </span>
         </div>
       </div>
     </div>

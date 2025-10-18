@@ -1,5 +1,4 @@
 import Link from "next/link";
-import HeroVideoAlternative from "./components/HeroVideoAlternative";
 import ExperienceMasonry from "./components/ExperienceMasonry";
 import PrivateSuiteTeaser from "./components/PrivateSuiteTeaser";
 
@@ -47,12 +46,9 @@ export default function Home() {
           }}
         />
         
-        {/* Cloudflare Stream Video */}
-        <HeroVideoAlternative />
-        
-        {/* Main content - left side on desktop */}
-        <div className="hero-content-main relative z-40 text-center md:text-left fade-in-up md:absolute md:left-20 md:top-1/2 md:-translate-y-1/2 px-6 md:px-0" style={{ 
-          maxWidth: '600px', 
+        {/* Main content - centered */}
+        <div className="hero-content-main relative z-40 text-center fade-in-up px-6" style={{ 
+          maxWidth: '800px', 
           animation: 'fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both',
         }}>
           <h1 
@@ -93,43 +89,6 @@ export default function Home() {
       {/* Private Suite Teaser Section */}
       <PrivateSuiteTeaser />
 
-      {/* CTA Section */}
-      <section 
-        className="cta-pattern relative overflow-hidden text-center"
-        style={{
-          padding: 'clamp(2rem, 5vw, var(--ref-spacing-32)) var(--ref-spacing-8)',
-          background: 'linear-gradient(135deg, var(--ref-color-brand-blue-500) 0%, var(--ref-color-brand-gold-500) 100%)',
-        }}
-      >
-        <div className="relative z-10">
-          <h2 
-            style={{
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              color: 'var(--ref-color-neutral-0)',
-              marginBottom: 'var(--ref-spacing-6)',
-              fontWeight: 'var(--ref-font-weight-bold)',
-            }}
-          >
-            Book Your Dream Vacation
-          </h2>
-          <p 
-            style={{
-              fontSize: 'var(--ref-font-size-xl)',
-              color: 'var(--ref-color-neutral-0)',
-              marginBottom: 'var(--ref-spacing-12)',
-              opacity: 0.95,
-            }}
-          >
-            Experience the magic of Lapland at OloResort&apos;s unique accommodation
-          </p>
-          <Link
-            href="/contact"
-            className="btn-primary inline-block"
-          >
-            Check Availability
-          </Link>
-        </div>
-      </section>
     </div>
   );
 }
