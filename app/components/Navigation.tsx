@@ -38,6 +38,7 @@ export default function Navigation() {
     { label: 'Travel Itineraries', href: '/travel-itineraries' },
     { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },
+    ...(process.env.NODE_ENV === 'development' ? [{ label: '🎨 Showcase', href: '/showcase' }] : []),
   ];
 
   return (
