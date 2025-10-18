@@ -213,17 +213,21 @@ export default function HeroVariant14() {
             zIndex: 1,
           }} />
 
-          {timelineItems.map((item, i) => (
-            <div
-              key={i}
-              style={{
-                position: 'relative',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: 'var(--ref-spacing-8)',
-              }}
-            >
+          {timelineItems.map((item, i) => {
+            const isActive = activeSection === i;
+            const isEven = i % 2 === 0;
+            
+            return (
+              <div
+                key={i}
+                style={{
+                  position: 'relative',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 'var(--ref-spacing-8)',
+                }}
+              >
               {/* Top content/video */}
               <div style={{
                 flex: 1,
@@ -232,19 +236,19 @@ export default function HeroVariant14() {
                 alignItems: 'flex-end',
                 paddingBottom: 'var(--ref-spacing-4)',
               }}>
-                {i % 2 === 0 ? (
+                {isEven ? (
                   // Even: Content on top
                   <div style={{
                     background: 'var(--sem-color-background-surface)',
                     padding: 'var(--ref-spacing-6)',
                     borderRadius: 'var(--ref-radius-xl)',
-                    boxShadow: activeSection === i ? 'var(--ref-shadow-xl)' : 'var(--ref-shadow-base)',
-                    border: activeSection === i 
+                    boxShadow: isActive ? 'var(--ref-shadow-xl)' : 'var(--ref-shadow-base)',
+                    border: isActive 
                       ? '2px solid var(--ref-color-brand-gold-600)'
                       : '1px solid var(--sem-color-border-light)',
                     width: '100%',
-                    opacity: activeSection === i ? 1 : 0.7,
-                    transform: activeSection === i ? 'translateY(-10px)' : 'translateY(0)',
+                    opacity: isActive ? 1 : 0.7,
+                    transform: isActive ? 'translateY(-10px)' : 'translateY(0)',
                     transition: 'all 0.5s ease',
                   }}>
                     <div style={{
@@ -280,9 +284,9 @@ export default function HeroVariant14() {
                     aspectRatio: '4/3',
                     borderRadius: 'var(--ref-radius-xl)',
                     overflow: 'hidden',
-                    boxShadow: activeSection === i ? 'var(--ref-shadow-xl)' : 'var(--ref-shadow-base)',
-                    opacity: activeSection === i ? 1 : 0.7,
-                    transform: activeSection === i ? 'translateY(-10px)' : 'translateY(0)',
+                    boxShadow: isActive ? 'var(--ref-shadow-xl)' : 'var(--ref-shadow-base)',
+                    opacity: isActive ? 1 : 0.7,
+                    transform: isActive ? 'translateY(-10px)' : 'translateY(0)',
                     transition: 'all 0.5s ease',
                   }}>
                     {videoId ? (
@@ -318,22 +322,22 @@ export default function HeroVariant14() {
                 zIndex: 2,
               }}>
                 <div style={{
-                  width: activeSection === i ? '60px' : '40px',
-                  height: activeSection === i ? '60px' : '40px',
+                  width: isActive ? '60px' : '40px',
+                  height: isActive ? '60px' : '40px',
                   borderRadius: '50%',
-                  background: activeSection === i 
+                  background: isActive 
                     ? 'var(--ref-color-brand-gold-600)' 
                     : 'var(--sem-color-background-surface)',
                   border: '3px solid var(--ref-color-brand-gold-600)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: activeSection === i ? 'var(--ref-font-size-xl)' : 'var(--ref-font-size-base)',
+                  fontSize: isActive ? 'var(--ref-font-size-xl)' : 'var(--ref-font-size-base)',
                   fontWeight: 'var(--ref-font-weight-bold)',
-                  color: activeSection === i 
+                  color: isActive 
                     ? 'var(--ref-color-neutral-0)' 
                     : 'var(--ref-color-brand-gold-600)',
-                  boxShadow: activeSection === i ? 'var(--ref-shadow-lg)' : 'none',
+                  boxShadow: isActive ? 'var(--ref-shadow-lg)' : 'none',
                   transition: 'all 0.5s ease',
                   cursor: 'pointer',
                 }}
@@ -343,7 +347,7 @@ export default function HeroVariant14() {
               </div>
               
               {/* Active indicator */}
-              {activeSection === i && (
+              {isActive && (
                 <div style={{
                   position: 'absolute',
                   width: '80px',
@@ -364,19 +368,19 @@ export default function HeroVariant14() {
               alignItems: 'flex-start',
               paddingTop: 'var(--ref-spacing-4)',
             }}>
-              {i % 2 === 1 ? (
+              {!isEven ? (
                 // Odd: Content on bottom
                 <div style={{
                   background: 'var(--sem-color-background-surface)',
                   padding: 'var(--ref-spacing-6)',
                   borderRadius: 'var(--ref-radius-xl)',
-                  boxShadow: activeSection === i ? 'var(--ref-shadow-xl)' : 'var(--ref-shadow-base)',
-                  border: activeSection === i 
+                  boxShadow: isActive ? 'var(--ref-shadow-xl)' : 'var(--ref-shadow-base)',
+                  border: isActive 
                     ? '2px solid var(--ref-color-brand-gold-600)'
                     : '1px solid var(--sem-color-border-light)',
                   width: '100%',
-                  opacity: activeSection === i ? 1 : 0.7,
-                  transform: activeSection === i ? 'translateY(10px)' : 'translateY(0)',
+                  opacity: isActive ? 1 : 0.7,
+                  transform: isActive ? 'translateY(10px)' : 'translateY(0)',
                   transition: 'all 0.5s ease',
                 }}>
                   <div style={{
@@ -412,9 +416,9 @@ export default function HeroVariant14() {
                   aspectRatio: '4/3',
                   borderRadius: 'var(--ref-radius-xl)',
                   overflow: 'hidden',
-                  boxShadow: activeSection === i ? 'var(--ref-shadow-xl)' : 'var(--ref-shadow-base)',
-                  opacity: activeSection === i ? 1 : 0.7,
-                  transform: activeSection === i ? 'translateY(10px)' : 'translateY(0)',
+                  boxShadow: isActive ? 'var(--ref-shadow-xl)' : 'var(--ref-shadow-base)',
+                  opacity: isActive ? 1 : 0.7,
+                  transform: isActive ? 'translateY(10px)' : 'translateY(0)',
                   transition: 'all 0.5s ease',
                 }}>
                   {videoId ? (
@@ -443,7 +447,8 @@ export default function HeroVariant14() {
                 </div>
               )}
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
