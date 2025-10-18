@@ -17,6 +17,11 @@ import HeroVariant7 from '../components/HeroVariant7';
 import HeroVariant8 from '../components/HeroVariant8';
 import HeroVariant9 from '../components/HeroVariant9';
 import HeroVariant10 from '../components/HeroVariant10';
+import HeroVariant11 from '../components/HeroVariant11';
+import HeroVariant12 from '../components/HeroVariant12';
+import HeroVariant13 from '../components/HeroVariant13';
+import HeroVariant14 from '../components/HeroVariant14';
+import HeroVariant15 from '../components/HeroVariant15';
 import ExperienceMasonry from '../components/ExperienceMasonry';
 import PrivateSuiteTeaser from '../components/PrivateSuiteTeaser';
 import PrivateSuiteSection from '../components/PrivateSuiteSection';
@@ -100,6 +105,36 @@ const showcaseSections: ShowcaseSection[] = [
         name: 'V10: Storytelling Sequence',
         component: <HeroVariant10 />,
         notes: 'Narrative approach with scroll-triggered story chapters and visual progression.'
+      },
+      {
+        id: 'hero-variant-11',
+        name: 'V11: Diagonal Split',
+        component: <HeroVariant11 />,
+        notes: 'Diagonal division between content and video with geometric accents.'
+      },
+      {
+        id: 'hero-variant-12',
+        name: 'V12: Frame Within Frame',
+        component: <HeroVariant12 />,
+        notes: 'Nested frames design with multiple layers and decorative corners.'
+      },
+      {
+        id: 'hero-variant-13',
+        name: 'V13: Floating Cards',
+        component: <HeroVariant13 />,
+        notes: '3D floating cards with mouse interaction and depth effects.'
+      },
+      {
+        id: 'hero-variant-14',
+        name: 'V14: Timeline Layout',
+        component: <HeroVariant14 />,
+        notes: 'Interactive timeline with alternating content and video sections.'
+      },
+      {
+        id: 'hero-variant-15',
+        name: 'V15: Geometric Mosaic',
+        component: <HeroVariant15 />,
+        notes: 'Complex geometric patterns with hexagons, diamonds, and various shapes.'
       }
     ]
   },

@@ -32,6 +32,17 @@ html {
   }
 }
 
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+}
+
 body {
   background: var(--sem-color-background-page);
   color: var(--sem-color-text-body-dark);
