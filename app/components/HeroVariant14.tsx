@@ -447,7 +447,7 @@ export default function HeroVariant14() {
                 </div>
               )}
             </div>
-            );
+          );
           })}
         </div>
       </div>
