@@ -305,7 +305,7 @@ export default function HeroVariant14() {
                       <div style={{
                         width: '100%',
                         height: '100%',
-                        background: `linear-gradient(135deg, var(--ref-color-brand-gold-${900 - i * 100}), var(--ref-color-neutral-800))`
+                        background: 'linear-gradient(135deg, var(--ref-color-brand-gold-700), var(--ref-color-neutral-800))'
                       }} />
                     )}
                   </div>
@@ -437,7 +437,7 @@ export default function HeroVariant14() {
                     <div style={{
                       width: '100%',
                       height: '100%',
-                      background: `linear-gradient(135deg, var(--ref-color-brand-gold-${900 - i * 100}), var(--ref-color-neutral-800))`
+                      background: 'linear-gradient(135deg, var(--ref-color-brand-gold-600), var(--ref-color-neutral-800))'
                     }} />
                   )}
                 </div>

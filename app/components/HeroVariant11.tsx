@@ -305,7 +305,7 @@ export default function HeroVariant11() {
             left: `${45 + i * 5}%`,
             width: '1px',
             height: '100%',
-            background: `linear-gradient(to bottom, transparent, var(--ref-color-brand-gold-${600 - i * 100}), transparent)`,
+            background: 'linear-gradient(to bottom, transparent, var(--ref-color-brand-gold-500), transparent)',
             opacity: 0.2,
             transform: 'skewX(-20deg)',
             zIndex: 4,
