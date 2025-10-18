@@ -12,6 +12,11 @@ import HeroVariant2 from '../components/HeroVariant2';
 import HeroVariant3 from '../components/HeroVariant3';
 import HeroVariant4 from '../components/HeroVariant4';
 import HeroVariant5 from '../components/HeroVariant5';
+import HeroVariant6 from '../components/HeroVariant6';
+import HeroVariant7 from '../components/HeroVariant7';
+import HeroVariant8 from '../components/HeroVariant8';
+import HeroVariant9 from '../components/HeroVariant9';
+import HeroVariant10 from '../components/HeroVariant10';
 import ExperienceMasonry from '../components/ExperienceMasonry';
 import PrivateSuiteTeaser from '../components/PrivateSuiteTeaser';
 import PrivateSuiteSection from '../components/PrivateSuiteSection';
@@ -65,6 +70,36 @@ const showcaseSections: ShowcaseSection[] = [
         name: 'V5: Minimal Centered',
         component: <HeroVariant5 />,
         notes: 'Minimalist approach with subtle background video and centered content.'
+      },
+      {
+        id: 'hero-variant-6',
+        name: 'V6: Cinematic Letterbox',
+        component: <HeroVariant6 />,
+        notes: 'Ultra-wide cinematic format with letterbox bars and side content panels.'
+      },
+      {
+        id: 'hero-variant-7',
+        name: 'V7: Collage Style',
+        component: <HeroVariant7 />,
+        notes: 'Collage layout with multiple small video elements and content cards.'
+      },
+      {
+        id: 'hero-variant-8',
+        name: 'V8: Magazine Style',
+        component: <HeroVariant8 />,
+        notes: 'Magazine-style layout with sidebar content and cover-style video.'
+      },
+      {
+        id: 'hero-variant-9',
+        name: 'V9: Interactive Parallax',
+        component: <HeroVariant9 />,
+        notes: 'Parallax scrolling effect with layered content moving at different speeds.'
+      },
+      {
+        id: 'hero-variant-10',
+        name: 'V10: Storytelling Sequence',
+        component: <HeroVariant10 />,
+        notes: 'Narrative approach with scroll-triggered story chapters and visual progression.'
       }
     ]
   },
